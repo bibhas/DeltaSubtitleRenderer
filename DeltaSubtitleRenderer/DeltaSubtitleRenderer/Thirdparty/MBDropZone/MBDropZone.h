@@ -12,6 +12,7 @@
 
 @interface MBDropZone : NSView {
     BOOL _isHoveringFile;
+    BOOL _isEnabled;
 }
 
 @property (weak) id<MBDropZoneDelegate> delegate;
@@ -21,6 +22,8 @@
 @property (strong, nonatomic) NSString* detailText;
 
 @property (strong, nonatomic) NSString* file;
+
+- (void)setEnabled:(BOOL)isEnabled;
 
 @end
 

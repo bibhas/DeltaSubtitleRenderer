@@ -49,7 +49,7 @@
   std::uint32_t zoneHeight = 200;
   // Add mp4 drop zone
   mp4DropZone = COMPUTE(MBDropZone *, {
-    MBDropZone *resp = [[MBDropZone alloc] initWithFrame:NSMakeRect(10, 10, zoneWidth, zoneHeight)];
+    MBDropZone *resp = [[MBDropZone alloc] initWithFrame:NSMakeRect(10, 15, zoneWidth, zoneHeight)];
     [resp setText:@"Drop Video File"];
     [resp setFileType:@".mp4"];
     [resp setDelegate:self];
@@ -58,7 +58,7 @@
   [contentView addSubview:mp4DropZone];
   // Add subtitles drop zone
   srtDropZone = COMPUTE(MBDropZone *, {
-    MBDropZone *resp = [[MBDropZone alloc] initWithFrame:NSMakeRect(zoneWidth + 20, 10, zoneWidth, zoneHeight)];
+    MBDropZone *resp = [[MBDropZone alloc] initWithFrame:NSMakeRect(zoneWidth + 20, 15, zoneWidth, zoneHeight)];
     [resp setText:@"Drop Subtitles File"];
     [resp setFileType:@".srt"];
     [resp setDelegate:self];
@@ -67,7 +67,7 @@
   [contentView addSubview:srtDropZone];
   // Add progress indicator
   progressIndicator = COMPUTE(NSProgressIndicator *, {
-    NSProgressIndicator *resp = [[NSProgressIndicator alloc] initWithFrame:NSMakeRect(15, zoneHeight + 10 + 10, STARTUP_WINDOW_WIDTH - 30, 28)];
+    NSProgressIndicator *resp = [[NSProgressIndicator alloc] initWithFrame:NSMakeRect(15, zoneHeight + 10 + 15, STARTUP_WINDOW_WIDTH - 30, 28)];
     [resp setStyle:NSProgressIndicatorBarStyle];
     [resp setMinValue:0.0];
     [resp setMaxValue:1.0];
@@ -84,13 +84,21 @@
     [resp setBezelStyle:NSRoundedBezelStyle];
     [resp setTarget:self];
     [resp setEnabled:NO];
-    //[resp setAction:@selector(fireButtonClicked:)];
+    [resp setAction:@selector(startButtonClicked:)];
     return resp;
   });
   [contentView addSubview:startButton];
   // Show window and bring it to front
   [window makeKeyAndOrderFront:self];
   [self setupMenu];
+}
+
+- (void)startButtonClicked:(id)sender {
+  [progressIndicator setDoubleValue:0.5];
+  [startButton setEnabled:NO];
+  [startButton setTitle:@"Rendering, please wait"];
+  [mp4DropZone setEnabled:NO];
+  [srtDropZone setEnabled:NO];
 }
 
 - (void)dropZone:(MBDropZone*)dropZone receivedFile:(NSString*)file {
@@ -102,6 +110,10 @@
   }
   else {
     std::cerr << "Got something else..." << [file UTF8String] << std::endl;
+  }
+  if ([mp4DropZone file] != nil && [srtDropZone file] != nil) {
+    [startButton setEnabled:YES];
+    [progressIndicator setAlphaValue:1.0];
   }
 }
 

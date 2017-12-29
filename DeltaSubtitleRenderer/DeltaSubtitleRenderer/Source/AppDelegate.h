@@ -6,7 +6,7 @@
 #import <Cocoa/Cocoa.h>
 
 #define STARTUP_WINDOW_WIDTH    500
-#define STARTUP_WINDOW_HEIGHT   300
+#define STARTUP_WINDOW_HEIGHT   305
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
 @end

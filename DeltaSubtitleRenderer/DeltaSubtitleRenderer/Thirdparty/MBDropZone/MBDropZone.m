@@ -10,6 +10,14 @@
 
 @implementation MBDropZone
 
+- (id)initWithFrame:(NSRect)aFrame {
+  self = [super initWithFrame:aFrame];
+  if (self != nil) {
+    _isEnabled = YES;
+  }
+  return self;
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     // Color Declarations
@@ -36,6 +44,11 @@
         CGFloat roundedRectanglePattern[] = {6, 6, 6, 6};
         [roundedRectanglePath setLineDash:roundedRectanglePattern count:4 phase:0];
         [roundedRectanglePath stroke];
+    }
+    else {
+        NSBezierPath* roundedRectanglePath = [NSBezierPath bezierPathWithRoundedRect:dirtyRect xRadius:8 yRadius:8];
+        [[NSColor colorWithWhite:1.0 alpha:0.6] setFill];
+        [roundedRectanglePath fill];
     }
 
     if (_text)
@@ -121,6 +134,10 @@
     [self display];
 }
 
+- (void)setEnabled:(BOOL)isEnabled {
+  _isEnabled = isEnabled;
+}
+
 - (void)setFile:(NSString *)file {
     _file = file;
 
@@ -128,6 +145,9 @@
 }
 
 - (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
+    if (_isEnabled == NO) {
+      return NSDragOperationNone;
+    }
     NSMutableArray* draggedFiles = [[[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType] mutableCopy];
 
     for (NSString* draggedFile in draggedFiles) {
