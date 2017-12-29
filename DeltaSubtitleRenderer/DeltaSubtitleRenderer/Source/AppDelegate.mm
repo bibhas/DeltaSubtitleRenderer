@@ -94,11 +94,23 @@
 }
 
 - (void)startButtonClicked:(id)sender {
+  // Update UI
   [progressIndicator setDoubleValue:0.5];
   [startButton setEnabled:NO];
   [startButton setTitle:@"Rendering, please wait"];
   [mp4DropZone setEnabled:NO];
   [srtDropZone setEnabled:NO];
+  // Start rendering
+  SubRip *ripper = [[SubRip alloc] initWithFile:[srtDropZone file]];
+  std::uint32_t i = 0;
+  for (;;) {
+    SubRipItem *item = [ripper subRipItemAtIndex:i];
+    if (item == nil) {
+      break;
+    }
+    std::cout << "Item : " << i  << " -- " << [[item text] UTF8String] << std::endl;
+    i++;
+  }
 }
 
 - (void)dropZone:(MBDropZone*)dropZone receivedFile:(NSString*)file {
@@ -120,9 +132,6 @@
 - (void)dealloc {
   [window release];
   [super dealloc];
-}
-
-- (void)windowDidResize:(NSNotification *)notification {
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {

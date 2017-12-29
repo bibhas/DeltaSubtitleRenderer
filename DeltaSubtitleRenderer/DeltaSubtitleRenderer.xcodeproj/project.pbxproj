@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A315D6AF1FF64CDA002AA3C8 /* SubtitleRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A315D6AE1FF64CDA002AA3C8 /* SubtitleRenderer.mm */; };
 		A37271AF1FF63617009E6C82 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A37271AE1FF63617009E6C82 /* AppDelegate.mm */; };
 		A37271C51FF6374B009E6C82 /* MBDropZone.m in Sources */ = {isa = PBXBuildFile; fileRef = A37271C31FF63743009E6C82 /* MBDropZone.m */; };
 		A37271C61FF63750009E6C82 /* MBDropZone.h in Headers */ = {isa = PBXBuildFile; fileRef = A37271C21FF63743009E6C82 /* MBDropZone.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,6 +22,8 @@
 		41A3B69DDDA3578011CC72D6 /* libPods-DeltaSubtitleRenderer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeltaSubtitleRenderer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72CCA2336129962917F9F87D /* Pods-DeltaSubtitleRenderer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeltaSubtitleRenderer.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeltaSubtitleRenderer/Pods-DeltaSubtitleRenderer.release.xcconfig"; sourceTree = "<group>"; };
 		88F59AF49C9B0958B88025EA /* Pods-DeltaSubtitleRenderer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeltaSubtitleRenderer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeltaSubtitleRenderer/Pods-DeltaSubtitleRenderer.debug.xcconfig"; sourceTree = "<group>"; };
+		A315D6AD1FF64CDA002AA3C8 /* SubtitleRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubtitleRenderer.h; path = Source/SubtitleRenderer.h; sourceTree = "<group>"; };
+		A315D6AE1FF64CDA002AA3C8 /* SubtitleRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SubtitleRenderer.mm; path = Source/SubtitleRenderer.mm; sourceTree = "<group>"; };
 		A37271AD1FF63617009E6C82 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/AppDelegate.h; sourceTree = "<group>"; };
 		A37271AE1FF63617009E6C82 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Source/AppDelegate.mm; sourceTree = "<group>"; };
 		A37271B91FF636C4009E6C82 /* libMBDropZone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBDropZone.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +100,8 @@
 				A37271C91FF63A86009E6C82 /* FlippedView.mm */,
 				A37271AD1FF63617009E6C82 /* AppDelegate.h */,
 				A37271AE1FF63617009E6C82 /* AppDelegate.mm */,
+				A315D6AD1FF64CDA002AA3C8 /* SubtitleRenderer.h */,
+				A315D6AE1FF64CDA002AA3C8 /* SubtitleRenderer.mm */,
 				A37271B01FF6367E009E6C82 /* Thirdparty */,
 				A3C752E71FF6328700CEF8B3 /* Supporting Files */,
 			);
@@ -294,6 +299,7 @@
 			files = (
 				A37271CA1FF63A86009E6C82 /* FlippedView.mm in Sources */,
 				A37271AF1FF63617009E6C82 /* AppDelegate.mm in Sources */,
+				A315D6AF1FF64CDA002AA3C8 /* SubtitleRenderer.mm in Sources */,
 				A3C752E91FF6328700CEF8B3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
