@@ -34,7 +34,6 @@
 
     // Padding
     dirtyRect = NSMakeRect(dirtyRect.origin.x + 5, dirtyRect.origin.y + 5, dirtyRect.size.width - 10, dirtyRect.size.height - 10);
-
     // Rounded Rectangle Drawing
     if (!_file)
     {
@@ -43,12 +42,17 @@
         [roundedRectanglePath setLineWidth:2];
         CGFloat roundedRectanglePattern[] = {6, 6, 6, 6};
         [roundedRectanglePath setLineDash:roundedRectanglePattern count:4 phase:0];
+        [[NSColor colorWithWhite:1.0 alpha:0.6] setFill];
+        [roundedRectanglePath fill];
         [roundedRectanglePath stroke];
     }
     else {
         NSBezierPath* roundedRectanglePath = [NSBezierPath bezierPathWithRoundedRect:dirtyRect xRadius:8 yRadius:8];
-        [[NSColor colorWithWhite:1.0 alpha:0.6] setFill];
+        [[NSColor colorWithWhite:1.0 alpha:0.8] setFill];
         [roundedRectanglePath fill];
+        [roundedRectanglePath setLineWidth:0.25];
+        [[NSColor colorWithWhite:0.2 alpha:0.6] setStroke];
+        [roundedRectanglePath stroke];
     }
 
     if (_text)
