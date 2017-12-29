@@ -1,0 +1,1 @@
+../../../SubRipForCocoa/TagSupport/JXSRTTagsSupport.h

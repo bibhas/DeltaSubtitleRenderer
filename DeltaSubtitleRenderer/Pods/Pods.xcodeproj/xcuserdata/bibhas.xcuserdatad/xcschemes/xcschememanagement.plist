@@ -4,25 +4,29 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DeltaSubtitleRenderer.xcscheme</key>
+		<key>Pods-DeltaSubtitleRenderer.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
-		<key>MBDropZone.xcscheme</key>
+		<key>SubRipForCocoa.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A37271B81FF636C4009E6C82</key>
+		<key>86B0AA65F67DB5C9C13D2A594C2BE82E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A3C752E01FF6328700CEF8B3</key>
+		<key>B84AC37A2378A0EF9940677596B40409</key>
 		<dict>
 			<key>primary</key>
 			<true/>

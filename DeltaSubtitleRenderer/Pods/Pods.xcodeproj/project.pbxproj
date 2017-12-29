@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01FFCF7C77F958EE0A5D7C5A6A65EC32 /* DTCoreTextParagraphStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C8E4EF356054593D14C433677E929B /* DTCoreTextParagraphStyle.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2D193D7F56FEA1BC63EE3545A25CCC12 /* NSMutableAttributedString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A93D9E2684B6A89020B0A704750D2136 /* NSMutableAttributedString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		38BB5ED5BB14D3094E32CF20F8BA7626 /* DTCompatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = AE5F736DC6743F1C00FFA814569400BD /* DTCompatibility.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3D0F92AEDF973E6A5B7A1EE10C160AAF /* DTCoreTextConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 08D9F8F663E09C42805532A7A17F709A /* DTCoreTextConstants.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4678139821AF5CC958D68A6DDEF57142 /* DTCoreTextParagraphStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AC6E64925BA87E76341A7A072390504 /* DTCoreTextParagraphStyle.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4F267DA070F00183E8F9918A100DD650 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38B046BDDE20DFAC717BFC4FC8BAD49 /* Cocoa.framework */; };
+		5BAF0E553E7CFF3A49B404F1EFFECBB5 /* NSCharacterSet+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 037F3281294015AFA5AE115841B7642F /* NSCharacterSet+HTML.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5C520BF65F6CDC28C34A7F4EA332AC8C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FFEEF5C0390270A1558A4B4FCB225A /* CoreMedia.framework */; };
+		64CF2B442CC93BF086640ADC7FD0929D /* NSScanner+SRTTags.m in Sources */ = {isa = PBXBuildFile; fileRef = A20B4731A8FD3558E9E72AD0532B887C /* NSScanner+SRTTags.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6569CC0975F5DD1A60E10E97C247F93F /* JXSRTElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D414F00E98B4FEF4C9E7412E28A765BA /* JXSRTElement.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		6D30EC1BB5A8CDB47A2571AEB456857D /* JXSRTTagsSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AE2B986FC3FA1605185575B66709396 /* JXSRTTagsSupport.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		6EB833DB87D9A24784B16C26487120E4 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF71593B20019A514E4B85854AA813 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		724108DE471E04690C20B656314F0DE3 /* SubRip.m in Sources */ = {isa = PBXBuildFile; fileRef = 737895B79F4698CB27DA57C796A67DD4 /* SubRip.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		772FF558BC7E94C31E5C23B0D6C6F0BD /* DTColor+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C5497101FE62B385E4CCD8A176A4014 /* DTColor+HTML.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		90FF292417AD39E31649A49B397066CA /* DTCoreTextFontDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 28FABD2FA09614E09B4C3E05AD4C8E8B /* DTCoreTextFontDescriptor.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		AEEE1D6EC7D56CBAFC20053E6FA8A1BD /* LICENSE in Sources */ = {isa = PBXBuildFile; fileRef = 632B636B30CA397EABBB4E60C4023FEC /* LICENSE */; };
+		B24F191D713E58F9AE15FA47D5950DF0 /* DTCoreTextConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DDDF56613BA4333A7B477F9563B63C /* DTCoreTextConstants.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B425D885CB1F262BFDF5AA96DF83AE6D /* NSMutableAttributedString+SRTString.h in Headers */ = {isa = PBXBuildFile; fileRef = 331EDE8B7173D34B883ADD170D891FD2 /* NSMutableAttributedString+SRTString.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		BD918EDE4B2D2EC6060A13F5EBB2EF70 /* JXSRTElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 51048A8320404950A768291591854540 /* JXSRTElement.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE551F182524F3A753AFA9CC8282AB3E /* JXArcCompatibilityMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D83063B36518566FC96F9087D49B16 /* JXArcCompatibilityMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C09D202A4F3697F84CC72B042518C5E1 /* NSMutableAttributedString+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 614DEA10A909A9559468078C6AA5E34F /* NSMutableAttributedString+HTML.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C1DC592C39353B523BB2134BFEA6D199 /* NSScanner+SRTTags.h in Headers */ = {isa = PBXBuildFile; fileRef = 6092BAD559937F9A0CD5B39C7E4575F7 /* NSScanner+SRTTags.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C43E4653ACC795495DEC7ADF4BB890DF /* NSCharacterSet+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C22DBCE2AFA29D707B9E2793190B8B /* NSCharacterSet+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5DFE0CB5CECCE22B41747E56B4D8DFB /* Pods-DeltaSubtitleRenderer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 179CEAEEB7FB6D4FBF311181B0CBF85E /* Pods-DeltaSubtitleRenderer-dummy.m */; };
+		C80A4642716A97E9085F22C977F030BC /* SubRip.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AAE122E91E9B971952BDD9A9BD17028 /* SubRip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D776A558E01FBBC352E797E200939243 /* DTCoreTextFontDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9CE84A6CDA004917587368AC6FD282 /* DTCoreTextFontDescriptor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E7C6A70B5F9C6271417B2B4C794D211F /* NSString+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E7CD7F2DA52231DD3892596096E76E /* NSString+HTML.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		EAEA1523DA374AB574D383ABBC114070 /* SubRipForCocoa-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C5286FDC857FD3BC07C122732B7B5CF2 /* SubRipForCocoa-dummy.m */; };
+		ED1B1F64C07B493C9C993CAC0DD93EAC /* NSMutableAttributedString+SRTString.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C5AFF038E946B12342421D4AD24024 /* NSMutableAttributedString+SRTString.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F7108D076F75097FFBC150C173BE0455 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38B046BDDE20DFAC717BFC4FC8BAD49 /* Cocoa.framework */; };
+		F751A6C57CA589A600A43948220731C9 /* DTColor+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F527CE518B77B9CA4774A57C15FA76 /* DTColor+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AB35A6FA5F3C2ECF82213C1F1D5B95F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86B0AA65F67DB5C9C13D2A594C2BE82E;
+			remoteInfo = SubRipForCocoa;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		037F3281294015AFA5AE115841B7642F /* NSCharacterSet+HTML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSCharacterSet+HTML.h"; path = "External/DTCoreTextSubset/NSCharacterSet+HTML.h"; sourceTree = "<group>"; };
+		08D9F8F663E09C42805532A7A17F709A /* DTCoreTextConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTCoreTextConstants.h; path = External/DTCoreTextSubset/DTCoreTextConstants.h; sourceTree = "<group>"; };
+		0DA25A85B72F55058C593A05A3969413 /* Pods-DeltaSubtitleRenderer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DeltaSubtitleRenderer-acknowledgements.markdown"; sourceTree = "<group>"; };
+		161D1A5BDEDE0DC4AEDA432620EE565E /* libSubRipForCocoa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSubRipForCocoa.a; path = libSubRipForCocoa.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		179CEAEEB7FB6D4FBF311181B0CBF85E /* Pods-DeltaSubtitleRenderer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DeltaSubtitleRenderer-dummy.m"; sourceTree = "<group>"; };
+		19DDDF56613BA4333A7B477F9563B63C /* DTCoreTextConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTCoreTextConstants.m; path = External/DTCoreTextSubset/DTCoreTextConstants.m; sourceTree = "<group>"; };
+		1AC6E64925BA87E76341A7A072390504 /* DTCoreTextParagraphStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTCoreTextParagraphStyle.h; path = External/DTCoreTextSubset/DTCoreTextParagraphStyle.h; sourceTree = "<group>"; };
+		25FFEEF5C0390270A1558A4B4FCB225A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		28FABD2FA09614E09B4C3E05AD4C8E8B /* DTCoreTextFontDescriptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTCoreTextFontDescriptor.h; path = External/DTCoreTextSubset/DTCoreTextFontDescriptor.h; sourceTree = "<group>"; };
+		2AAE122E91E9B971952BDD9A9BD17028 /* SubRip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SubRip.h; path = SubRip/SubRip.h; sourceTree = "<group>"; };
+		2AE2B986FC3FA1605185575B66709396 /* JXSRTTagsSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXSRTTagsSupport.h; path = TagSupport/JXSRTTagsSupport.h; sourceTree = "<group>"; };
+		331EDE8B7173D34B883ADD170D891FD2 /* NSMutableAttributedString+SRTString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableAttributedString+SRTString.h"; path = "TagSupport/NSMutableAttributedString+SRTString.h"; sourceTree = "<group>"; };
+		4C5497101FE62B385E4CCD8A176A4014 /* DTColor+HTML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DTColor+HTML.h"; path = "External/DTCoreTextSubset/DTColor+HTML.h"; sourceTree = "<group>"; };
+		51048A8320404950A768291591854540 /* JXSRTElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXSRTElement.m; path = TagSupport/JXSRTElement.m; sourceTree = "<group>"; };
+		6092BAD559937F9A0CD5B39C7E4575F7 /* NSScanner+SRTTags.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSScanner+SRTTags.h"; path = "TagSupport/NSScanner+SRTTags.h"; sourceTree = "<group>"; };
+		614DEA10A909A9559468078C6AA5E34F /* NSMutableAttributedString+HTML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableAttributedString+HTML.h"; path = "External/DTCoreTextSubset/NSMutableAttributedString+HTML.h"; sourceTree = "<group>"; };
+		632B636B30CA397EABBB4E60C4023FEC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = External/DTCoreTextSubset/LICENSE; sourceTree = "<group>"; };
+		68BAA7762395DF87CBAD95F0A69C5FD4 /* SubRipForCocoa-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SubRipForCocoa-prefix.pch"; sourceTree = "<group>"; };
+		6BF70D632E1B87DDA1BA773E6E0A2B57 /* Pods-DeltaSubtitleRenderer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DeltaSubtitleRenderer-resources.sh"; sourceTree = "<group>"; };
+		6E1AC9B7A6D7322A049BFD66E184D27D /* Pods-DeltaSubtitleRenderer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeltaSubtitleRenderer.release.xcconfig"; sourceTree = "<group>"; };
+		70AF71593B20019A514E4B85854AA813 /* NSString+HTML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "External/DTCoreTextSubset/NSString+HTML.m"; sourceTree = "<group>"; };
+		737895B79F4698CB27DA57C796A67DD4 /* SubRip.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SubRip.m; path = SubRip/SubRip.m; sourceTree = "<group>"; };
+		7B9CE84A6CDA004917587368AC6FD282 /* DTCoreTextFontDescriptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTCoreTextFontDescriptor.m; path = External/DTCoreTextSubset/DTCoreTextFontDescriptor.m; sourceTree = "<group>"; };
+		825A285235B7FF9CC7A06D96271CD257 /* Pods-DeltaSubtitleRenderer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeltaSubtitleRenderer.debug.xcconfig"; sourceTree = "<group>"; };
+		84D83063B36518566FC96F9087D49B16 /* JXArcCompatibilityMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXArcCompatibilityMacros.h; path = SubRip/JXArcCompatibilityMacros.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98C5AFF038E946B12342421D4AD24024 /* NSMutableAttributedString+SRTString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableAttributedString+SRTString.m"; path = "TagSupport/NSMutableAttributedString+SRTString.m"; sourceTree = "<group>"; };
+		A1C8E4EF356054593D14C433677E929B /* DTCoreTextParagraphStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTCoreTextParagraphStyle.m; path = External/DTCoreTextSubset/DTCoreTextParagraphStyle.m; sourceTree = "<group>"; };
+		A20B4731A8FD3558E9E72AD0532B887C /* NSScanner+SRTTags.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSScanner+SRTTags.m"; path = "TagSupport/NSScanner+SRTTags.m"; sourceTree = "<group>"; };
+		A38B046BDDE20DFAC717BFC4FC8BAD49 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		A93D9E2684B6A89020B0A704750D2136 /* NSMutableAttributedString+HTML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableAttributedString+HTML.m"; path = "External/DTCoreTextSubset/NSMutableAttributedString+HTML.m"; sourceTree = "<group>"; };
+		AE5F736DC6743F1C00FFA814569400BD /* DTCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTCompatibility.h; path = External/DTCoreTextSubset/DTCompatibility.h; sourceTree = "<group>"; };
+		B8F527CE518B77B9CA4774A57C15FA76 /* DTColor+HTML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "DTColor+HTML.m"; path = "External/DTCoreTextSubset/DTColor+HTML.m"; sourceTree = "<group>"; };
+		C1C22DBCE2AFA29D707B9E2793190B8B /* NSCharacterSet+HTML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSCharacterSet+HTML.m"; path = "External/DTCoreTextSubset/NSCharacterSet+HTML.m"; sourceTree = "<group>"; };
+		C466BEA66F0D743F24702B7832CA4D12 /* libPods-DeltaSubtitleRenderer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-DeltaSubtitleRenderer.a"; path = "libPods-DeltaSubtitleRenderer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5286FDC857FD3BC07C122732B7B5CF2 /* SubRipForCocoa-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SubRipForCocoa-dummy.m"; sourceTree = "<group>"; };
+		C904819CC101C4F02A3A759469873DE7 /* Pods-DeltaSubtitleRenderer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeltaSubtitleRenderer-acknowledgements.plist"; sourceTree = "<group>"; };
+		D414F00E98B4FEF4C9E7412E28A765BA /* JXSRTElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXSRTElement.h; path = TagSupport/JXSRTElement.h; sourceTree = "<group>"; };
+		DD203B8655BFB46A17BACE5CA24546FC /* SubRipForCocoa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SubRipForCocoa.xcconfig; sourceTree = "<group>"; };
+		E5E7CD7F2DA52231DD3892596096E76E /* NSString+HTML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+HTML.h"; path = "External/DTCoreTextSubset/NSString+HTML.h"; sourceTree = "<group>"; };
+		F800C13ABFD620330B4FD566BB851154 /* Pods-DeltaSubtitleRenderer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DeltaSubtitleRenderer-frameworks.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24343B11AB7D7A178A49B23DB85094F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F267DA070F00183E8F9918A100DD650 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DB264A9B5AC4F76872000B16215AF24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7108D076F75097FFBC150C173BE0455 /* Cocoa.framework in Frameworks */,
+				5C520BF65F6CDC28C34A7F4EA332AC8C /* CoreMedia.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		023F8C8EB6338CD92AAF63BDD03C85E4 /* Pods-DeltaSubtitleRenderer */ = {
+			isa = PBXGroup;
+			children = (
+				0DA25A85B72F55058C593A05A3969413 /* Pods-DeltaSubtitleRenderer-acknowledgements.markdown */,
+				C904819CC101C4F02A3A759469873DE7 /* Pods-DeltaSubtitleRenderer-acknowledgements.plist */,
+				179CEAEEB7FB6D4FBF311181B0CBF85E /* Pods-DeltaSubtitleRenderer-dummy.m */,
+				F800C13ABFD620330B4FD566BB851154 /* Pods-DeltaSubtitleRenderer-frameworks.sh */,
+				6BF70D632E1B87DDA1BA773E6E0A2B57 /* Pods-DeltaSubtitleRenderer-resources.sh */,
+				825A285235B7FF9CC7A06D96271CD257 /* Pods-DeltaSubtitleRenderer.debug.xcconfig */,
+				6E1AC9B7A6D7322A049BFD66E184D27D /* Pods-DeltaSubtitleRenderer.release.xcconfig */,
+			);
+			name = "Pods-DeltaSubtitleRenderer";
+			path = "Target Support Files/Pods-DeltaSubtitleRenderer";
+			sourceTree = "<group>";
+		};
+		0AC4082AC3EA324B8E77DDC63A992702 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				A38B046BDDE20DFAC717BFC4FC8BAD49 /* Cocoa.framework */,
+				25FFEEF5C0390270A1558A4B4FCB225A /* CoreMedia.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		5E933A21B60738D08BB15622819679F3 /* SubRipForCocoa */ = {
+			isa = PBXGroup;
+			children = (
+				4C5497101FE62B385E4CCD8A176A4014 /* DTColor+HTML.h */,
+				B8F527CE518B77B9CA4774A57C15FA76 /* DTColor+HTML.m */,
+				AE5F736DC6743F1C00FFA814569400BD /* DTCompatibility.h */,
+				08D9F8F663E09C42805532A7A17F709A /* DTCoreTextConstants.h */,
+				19DDDF56613BA4333A7B477F9563B63C /* DTCoreTextConstants.m */,
+				28FABD2FA09614E09B4C3E05AD4C8E8B /* DTCoreTextFontDescriptor.h */,
+				7B9CE84A6CDA004917587368AC6FD282 /* DTCoreTextFontDescriptor.m */,
+				1AC6E64925BA87E76341A7A072390504 /* DTCoreTextParagraphStyle.h */,
+				A1C8E4EF356054593D14C433677E929B /* DTCoreTextParagraphStyle.m */,
+				84D83063B36518566FC96F9087D49B16 /* JXArcCompatibilityMacros.h */,
+				D414F00E98B4FEF4C9E7412E28A765BA /* JXSRTElement.h */,
+				51048A8320404950A768291591854540 /* JXSRTElement.m */,
+				2AE2B986FC3FA1605185575B66709396 /* JXSRTTagsSupport.h */,
+				2AE2B986FC3FA1605185575B66709396 /* JXSRTTagsSupport.h */,
+				632B636B30CA397EABBB4E60C4023FEC /* LICENSE */,
+				037F3281294015AFA5AE115841B7642F /* NSCharacterSet+HTML.h */,
+				C1C22DBCE2AFA29D707B9E2793190B8B /* NSCharacterSet+HTML.m */,
+				614DEA10A909A9559468078C6AA5E34F /* NSMutableAttributedString+HTML.h */,
+				A93D9E2684B6A89020B0A704750D2136 /* NSMutableAttributedString+HTML.m */,
+				331EDE8B7173D34B883ADD170D891FD2 /* NSMutableAttributedString+SRTString.h */,
+				98C5AFF038E946B12342421D4AD24024 /* NSMutableAttributedString+SRTString.m */,
+				6092BAD559937F9A0CD5B39C7E4575F7 /* NSScanner+SRTTags.h */,
+				A20B4731A8FD3558E9E72AD0532B887C /* NSScanner+SRTTags.m */,
+				E5E7CD7F2DA52231DD3892596096E76E /* NSString+HTML.h */,
+				70AF71593B20019A514E4B85854AA813 /* NSString+HTML.m */,
+				2AAE122E91E9B971952BDD9A9BD17028 /* SubRip.h */,
+				737895B79F4698CB27DA57C796A67DD4 /* SubRip.m */,
+				6750F1432DB844ED7A1A7249FCC7177E /* Support Files */,
+			);
+			name = SubRipForCocoa;
+			path = SubRipForCocoa;
+			sourceTree = "<group>";
+		};
+		62DEDFC490F4C597401A77C8B5A16922 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E933A21B60738D08BB15622819679F3 /* SubRipForCocoa */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6410393037660CB6430B261E3B9A827F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C466BEA66F0D743F24702B7832CA4D12 /* libPods-DeltaSubtitleRenderer.a */,
+				161D1A5BDEDE0DC4AEDA432620EE565E /* libSubRipForCocoa.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6750F1432DB844ED7A1A7249FCC7177E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD203B8655BFB46A17BACE5CA24546FC /* SubRipForCocoa.xcconfig */,
+				C5286FDC857FD3BC07C122732B7B5CF2 /* SubRipForCocoa-dummy.m */,
+				68BAA7762395DF87CBAD95F0A69C5FD4 /* SubRipForCocoa-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SubRipForCocoa";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				D648CE86F139C7CCFD55D5B8A03BE74B /* Frameworks */,
+				62DEDFC490F4C597401A77C8B5A16922 /* Pods */,
+				6410393037660CB6430B261E3B9A827F /* Products */,
+				F1DDE12662759270CB8FC7315ACD5ED8 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D648CE86F139C7CCFD55D5B8A03BE74B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0AC4082AC3EA324B8E77DDC63A992702 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1DDE12662759270CB8FC7315ACD5ED8 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				023F8C8EB6338CD92AAF63BDD03C85E4 /* Pods-DeltaSubtitleRenderer */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1F33401220123125018B935311A9F31B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				772FF558BC7E94C31E5C23B0D6C6F0BD /* DTColor+HTML.h in Headers */,
+				38BB5ED5BB14D3094E32CF20F8BA7626 /* DTCompatibility.h in Headers */,
+				3D0F92AEDF973E6A5B7A1EE10C160AAF /* DTCoreTextConstants.h in Headers */,
+				90FF292417AD39E31649A49B397066CA /* DTCoreTextFontDescriptor.h in Headers */,
+				4678139821AF5CC958D68A6DDEF57142 /* DTCoreTextParagraphStyle.h in Headers */,
+				BE551F182524F3A753AFA9CC8282AB3E /* JXArcCompatibilityMacros.h in Headers */,
+				6569CC0975F5DD1A60E10E97C247F93F /* JXSRTElement.h in Headers */,
+				6D30EC1BB5A8CDB47A2571AEB456857D /* JXSRTTagsSupport.h in Headers */,
+				6D30EC1BB5A8CDB47A2571AEB456857D /* JXSRTTagsSupport.h in Headers */,
+				5BAF0E553E7CFF3A49B404F1EFFECBB5 /* NSCharacterSet+HTML.h in Headers */,
+				C09D202A4F3697F84CC72B042518C5E1 /* NSMutableAttributedString+HTML.h in Headers */,
+				B425D885CB1F262BFDF5AA96DF83AE6D /* NSMutableAttributedString+SRTString.h in Headers */,
+				C1DC592C39353B523BB2134BFEA6D199 /* NSScanner+SRTTags.h in Headers */,
+				E7C6A70B5F9C6271417B2B4C794D211F /* NSString+HTML.h in Headers */,
+				C80A4642716A97E9085F22C977F030BC /* SubRip.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		86B0AA65F67DB5C9C13D2A594C2BE82E /* SubRipForCocoa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 293245D2A4583E18F2100ECFDDB5CA07 /* Build configuration list for PBXNativeTarget "SubRipForCocoa" */;
+			buildPhases = (
+				6BB6D47A0210BB11B7B5FA64D41BEB96 /* Sources */,
+				7DB264A9B5AC4F76872000B16215AF24 /* Frameworks */,
+				1F33401220123125018B935311A9F31B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SubRipForCocoa;
+			productName = SubRipForCocoa;
+			productReference = 161D1A5BDEDE0DC4AEDA432620EE565E /* libSubRipForCocoa.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B84AC37A2378A0EF9940677596B40409 /* Pods-DeltaSubtitleRenderer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD6816360A6D9875403117EFC4EFA342 /* Build configuration list for PBXNativeTarget "Pods-DeltaSubtitleRenderer" */;
+			buildPhases = (
+				E8C95D7B363CE96F61102CEFCA2C8E82 /* Sources */,
+				24343B11AB7D7A178A49B23DB85094F8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23754813AF3B3A7682A56ECF2BB9B9C7 /* PBXTargetDependency */,
+			);
+			name = "Pods-DeltaSubtitleRenderer";
+			productName = "Pods-DeltaSubtitleRenderer";
+			productReference = C466BEA66F0D743F24702B7832CA4D12 /* libPods-DeltaSubtitleRenderer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 6410393037660CB6430B261E3B9A827F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B84AC37A2378A0EF9940677596B40409 /* Pods-DeltaSubtitleRenderer */,
+				86B0AA65F67DB5C9C13D2A594C2BE82E /* SubRipForCocoa */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6BB6D47A0210BB11B7B5FA64D41BEB96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F751A6C57CA589A600A43948220731C9 /* DTColor+HTML.m in Sources */,
+				B24F191D713E58F9AE15FA47D5950DF0 /* DTCoreTextConstants.m in Sources */,
+				D776A558E01FBBC352E797E200939243 /* DTCoreTextFontDescriptor.m in Sources */,
+				01FFCF7C77F958EE0A5D7C5A6A65EC32 /* DTCoreTextParagraphStyle.m in Sources */,
+				BD918EDE4B2D2EC6060A13F5EBB2EF70 /* JXSRTElement.m in Sources */,
+				AEEE1D6EC7D56CBAFC20053E6FA8A1BD /* LICENSE in Sources */,
+				C43E4653ACC795495DEC7ADF4BB890DF /* NSCharacterSet+HTML.m in Sources */,
+				2D193D7F56FEA1BC63EE3545A25CCC12 /* NSMutableAttributedString+HTML.m in Sources */,
+				ED1B1F64C07B493C9C993CAC0DD93EAC /* NSMutableAttributedString+SRTString.m in Sources */,
+				64CF2B442CC93BF086640ADC7FD0929D /* NSScanner+SRTTags.m in Sources */,
+				6EB833DB87D9A24784B16C26487120E4 /* NSString+HTML.m in Sources */,
+				724108DE471E04690C20B656314F0DE3 /* SubRip.m in Sources */,
+				EAEA1523DA374AB574D383ABBC114070 /* SubRipForCocoa-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8C95D7B363CE96F61102CEFCA2C8E82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5DFE0CB5CECCE22B41747E56B4D8DFB /* Pods-DeltaSubtitleRenderer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23754813AF3B3A7682A56ECF2BB9B9C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SubRipForCocoa;
+			target = 86B0AA65F67DB5C9C13D2A594C2BE82E /* SubRipForCocoa */;
+			targetProxy = AB35A6FA5F3C2ECF82213C1F1D5B95F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		337AD37B27D7FFADF01DD8D7FE35B27B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		435CA27981345BE3F0BB3A860AC9E87A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 825A285235B7FF9CC7A06D96271CD257 /* Pods-DeltaSubtitleRenderer.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9630F9D7FFDB702D83E5A8F75CBC34A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD203B8655BFB46A17BACE5CA24546FC /* SubRipForCocoa.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SubRipForCocoa/SubRipForCocoa-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D900A1BCE6AB4AB95450CAA15121909C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E1AC9B7A6D7322A049BFD66E184D27D /* Pods-DeltaSubtitleRenderer.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DA4A9C6A31B431D76EC146EF94B8DC6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD203B8655BFB46A17BACE5CA24546FC /* SubRipForCocoa.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SubRipForCocoa/SubRipForCocoa-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FC4738C3605827B2CD972C349A860865 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		293245D2A4583E18F2100ECFDDB5CA07 /* Build configuration list for PBXNativeTarget "SubRipForCocoa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA4A9C6A31B431D76EC146EF94B8DC6C /* Debug */,
+				9630F9D7FFDB702D83E5A8F75CBC34A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				337AD37B27D7FFADF01DD8D7FE35B27B /* Debug */,
+				FC4738C3605827B2CD972C349A860865 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD6816360A6D9875403117EFC4EFA342 /* Build configuration list for PBXNativeTarget "Pods-DeltaSubtitleRenderer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				435CA27981345BE3F0BB3A860AC9E87A /* Debug */,
+				D900A1BCE6AB4AB95450CAA15121909C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

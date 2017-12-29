@@ -1,0 +1,1 @@
+../../../SubRipForCocoa/TagSupport/NSScanner+SRTTags.h

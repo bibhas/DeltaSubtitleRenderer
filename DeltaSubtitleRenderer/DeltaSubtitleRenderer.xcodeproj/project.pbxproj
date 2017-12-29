@@ -7,36 +7,77 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A3C752E61FF6328700CEF8B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C752E51FF6328700CEF8B3 /* AppDelegate.m */; };
+		A37271AF1FF63617009E6C82 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A37271AE1FF63617009E6C82 /* AppDelegate.mm */; };
+		A37271C51FF6374B009E6C82 /* MBDropZone.m in Sources */ = {isa = PBXBuildFile; fileRef = A37271C31FF63743009E6C82 /* MBDropZone.m */; };
+		A37271C61FF63750009E6C82 /* MBDropZone.h in Headers */ = {isa = PBXBuildFile; fileRef = A37271C21FF63743009E6C82 /* MBDropZone.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A37271C71FF637AC009E6C82 /* libMBDropZone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A37271B91FF636C4009E6C82 /* libMBDropZone.a */; };
+		A37271CA1FF63A86009E6C82 /* FlippedView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A37271C91FF63A86009E6C82 /* FlippedView.mm */; };
 		A3C752E91FF6328700CEF8B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C752E81FF6328700CEF8B3 /* main.m */; };
 		A3C752EB1FF6328700CEF8B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C752EA1FF6328700CEF8B3 /* Assets.xcassets */; };
+		BADDE27F70452F5CB07A6B0E /* libPods-DeltaSubtitleRenderer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A3B69DDDA3578011CC72D6 /* libPods-DeltaSubtitleRenderer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41A3B69DDDA3578011CC72D6 /* libPods-DeltaSubtitleRenderer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeltaSubtitleRenderer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		72CCA2336129962917F9F87D /* Pods-DeltaSubtitleRenderer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeltaSubtitleRenderer.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeltaSubtitleRenderer/Pods-DeltaSubtitleRenderer.release.xcconfig"; sourceTree = "<group>"; };
+		88F59AF49C9B0958B88025EA /* Pods-DeltaSubtitleRenderer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeltaSubtitleRenderer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeltaSubtitleRenderer/Pods-DeltaSubtitleRenderer.debug.xcconfig"; sourceTree = "<group>"; };
+		A37271AD1FF63617009E6C82 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/AppDelegate.h; sourceTree = "<group>"; };
+		A37271AE1FF63617009E6C82 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Source/AppDelegate.mm; sourceTree = "<group>"; };
+		A37271B91FF636C4009E6C82 /* libMBDropZone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBDropZone.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A37271C21FF63743009E6C82 /* MBDropZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBDropZone.h; path = Thirdparty/MBDropZone/MBDropZone.h; sourceTree = "<group>"; };
+		A37271C31FF63743009E6C82 /* MBDropZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBDropZone.m; path = Thirdparty/MBDropZone/MBDropZone.m; sourceTree = "<group>"; };
+		A37271C81FF63A86009E6C82 /* FlippedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlippedView.h; path = Source/FlippedView.h; sourceTree = "<group>"; };
+		A37271C91FF63A86009E6C82 /* FlippedView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FlippedView.mm; path = Source/FlippedView.mm; sourceTree = "<group>"; };
 		A3C752E11FF6328700CEF8B3 /* DeltaSubtitleRenderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltaSubtitleRenderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3C752E41FF6328700CEF8B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A3C752E51FF6328700CEF8B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A3C752E81FF6328700CEF8B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3C752EA1FF6328700CEF8B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3C752EF1FF6328700CEF8B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A3C752DE1FF6328700CEF8B3 /* Frameworks */ = {
+		A37271B61FF636C4009E6C82 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A3C752DE1FF6328700CEF8B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A37271C71FF637AC009E6C82 /* libMBDropZone.a in Frameworks */,
+				BADDE27F70452F5CB07A6B0E /* libPods-DeltaSubtitleRenderer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A37271B01FF6367E009E6C82 /* Thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				A37271B11FF63684009E6C82 /* MBDropZone */,
+			);
+			name = Thirdparty;
+			sourceTree = "<group>";
+		};
+		A37271B11FF63684009E6C82 /* MBDropZone */ = {
+			isa = PBXGroup;
+			children = (
+				A37271C21FF63743009E6C82 /* MBDropZone.h */,
+				A37271C31FF63743009E6C82 /* MBDropZone.m */,
+			);
+			name = MBDropZone;
+			sourceTree = "<group>";
+		};
 		A3C752D81FF6328700CEF8B3 = {
 			isa = PBXGroup;
 			children = (
 				A3C752E31FF6328700CEF8B3 /* DeltaSubtitleRenderer */,
 				A3C752E21FF6328700CEF8B3 /* Products */,
+				A90675BF63DB4EB27B6E6816 /* Pods */,
+				F9968D9CF0545CFE511C87ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -44,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				A3C752E11FF6328700CEF8B3 /* DeltaSubtitleRenderer.app */,
+				A37271B91FF636C4009E6C82 /* libMBDropZone.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,8 +93,11 @@
 		A3C752E31FF6328700CEF8B3 /* DeltaSubtitleRenderer */ = {
 			isa = PBXGroup;
 			children = (
-				A3C752E41FF6328700CEF8B3 /* AppDelegate.h */,
-				A3C752E51FF6328700CEF8B3 /* AppDelegate.m */,
+				A37271C81FF63A86009E6C82 /* FlippedView.h */,
+				A37271C91FF63A86009E6C82 /* FlippedView.mm */,
+				A37271AD1FF63617009E6C82 /* AppDelegate.h */,
+				A37271AE1FF63617009E6C82 /* AppDelegate.mm */,
+				A37271B01FF6367E009E6C82 /* Thirdparty */,
 				A3C752E71FF6328700CEF8B3 /* Supporting Files */,
 			);
 			path = DeltaSubtitleRenderer;
@@ -68,16 +113,64 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A90675BF63DB4EB27B6E6816 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88F59AF49C9B0958B88025EA /* Pods-DeltaSubtitleRenderer.debug.xcconfig */,
+				72CCA2336129962917F9F87D /* Pods-DeltaSubtitleRenderer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F9968D9CF0545CFE511C87ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41A3B69DDDA3578011CC72D6 /* libPods-DeltaSubtitleRenderer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		A37271B71FF636C4009E6C82 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A37271C61FF63750009E6C82 /* MBDropZone.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		A37271B81FF636C4009E6C82 /* MBDropZone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A37271BF1FF636C4009E6C82 /* Build configuration list for PBXNativeTarget "MBDropZone" */;
+			buildPhases = (
+				A37271B51FF636C4009E6C82 /* Sources */,
+				A37271B61FF636C4009E6C82 /* Frameworks */,
+				A37271B71FF636C4009E6C82 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MBDropZone;
+			productName = MBDropZone;
+			productReference = A37271B91FF636C4009E6C82 /* libMBDropZone.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		A3C752E01FF6328700CEF8B3 /* DeltaSubtitleRenderer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3C752F21FF6328700CEF8B3 /* Build configuration list for PBXNativeTarget "DeltaSubtitleRenderer" */;
 			buildPhases = (
+				48A78CAD5BE4D3737A7AA48D /* [CP] Check Pods Manifest.lock */,
 				A3C752DD1FF6328700CEF8B3 /* Sources */,
 				A3C752DE1FF6328700CEF8B3 /* Frameworks */,
 				A3C752DF1FF6328700CEF8B3 /* Resources */,
+				BA746EA2A47D9E35F8D86C8E /* [CP] Embed Pods Frameworks */,
+				771B5CE65271D8365B5BB8B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +189,11 @@
 			attributes = {
 				LastUpgradeCheck = 0820;
 				TargetAttributes = {
+					A37271B81FF636C4009E6C82 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4G52K299PY;
+						ProvisioningStyle = Automatic;
+					};
 					A3C752E01FF6328700CEF8B3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4G52K299PY;
@@ -117,6 +215,7 @@
 			projectRoot = "";
 			targets = (
 				A3C752E01FF6328700CEF8B3 /* DeltaSubtitleRenderer */,
+				A37271B81FF636C4009E6C82 /* MBDropZone */,
 			);
 		};
 /* End PBXProject section */
@@ -132,19 +231,94 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		48A78CAD5BE4D3737A7AA48D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		771B5CE65271D8365B5BB8B5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeltaSubtitleRenderer/Pods-DeltaSubtitleRenderer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA746EA2A47D9E35F8D86C8E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeltaSubtitleRenderer/Pods-DeltaSubtitleRenderer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		A37271B51FF636C4009E6C82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A37271C51FF6374B009E6C82 /* MBDropZone.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3C752DD1FF6328700CEF8B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37271CA1FF63A86009E6C82 /* FlippedView.mm in Sources */,
+				A37271AF1FF63617009E6C82 /* AppDelegate.mm in Sources */,
 				A3C752E91FF6328700CEF8B3 /* main.m in Sources */,
-				A3C752E61FF6328700CEF8B3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		A37271C01FF636C4009E6C82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 4G52K299PY;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A37271C11FF636C4009E6C82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 4G52K299PY;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A3C752F01FF6328700CEF8B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -234,6 +408,7 @@
 		};
 		A3C752F31FF6328700CEF8B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88F59AF49C9B0958B88025EA /* Pods-DeltaSubtitleRenderer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
@@ -248,6 +423,7 @@
 		};
 		A3C752F41FF6328700CEF8B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72CCA2336129962917F9F87D /* Pods-DeltaSubtitleRenderer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
@@ -263,6 +439,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A37271BF1FF636C4009E6C82 /* Build configuration list for PBXNativeTarget "MBDropZone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A37271C01FF636C4009E6C82 /* Debug */,
+				A37271C11FF636C4009E6C82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A3C752DC1FF6328700CEF8B3 /* Build configuration list for PBXProject "DeltaSubtitleRenderer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -279,6 +464,7 @@
 				A3C752F41FF6328700CEF8B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

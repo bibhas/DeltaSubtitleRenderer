@@ -1,0 +1,1 @@
+../../../SubRipForCocoa/TagSupport/NSMutableAttributedString+SRTString.h
