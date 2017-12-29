@@ -123,7 +123,13 @@
   }
   std::cout << "Read " << i + 1 << " subtitles from srt file..." << std::endl;
   // Begin render
-  [subtitleRenderer beginRendering];
+  NSString *renderPathString = COMPUTE({
+    NSString *val = @"~/Desktop/render.out.mp4";
+    return [[val stringByExpandingTildeInPath] stringByStandardizingPath];
+  });
+  std::cout << "Rendering to file at : " << [renderPathString UTF8String] << std::endl;
+  NSURL *renderPath = [NSURL URLWithString:renderPathString];
+  [subtitleRenderer renderToMP4AtPath:renderPath];
 }
 
 - (void)dropZone:(MBDropZone*)dropZone receivedFile:(NSString*)file {
@@ -144,6 +150,9 @@
 
 - (void)dealloc {
   [window release];
+  if (subtitleRenderer != nil) {
+    [subtitleRenderer release];
+  }
   [super dealloc];
 }
 
@@ -169,6 +178,22 @@
   [appMenu addItem:quitMenuItem];
   [appMenuItem setSubmenu:appMenu];
   [NSApp setMainMenu:menubar];
+}
+
+// SubtitleRendererDelegate methods
+
+- (void)subTitleRendererDidStartRendering:(SubtitleRenderer *)aRenderer {
+  [progressIndicator setAlphaValue:1.0];
+  [[progressIndicator animator] setDoubleValue:0.0];
+}
+
+- (void)subTitleRenderer:(SubtitleRenderer *)aRenderer didRenderWithProgress:(float)aProgressValue {
+  [[progressIndicator animator] setDoubleValue:aProgressValue];
+}
+
+- (void)subTitleRendererDidFinishRendering:(SubtitleRenderer *)aRenderer {
+  [mp4DropZone setEnabled:YES];
+  [srtDropZone setEnabled:YES];
 }
 
 @end

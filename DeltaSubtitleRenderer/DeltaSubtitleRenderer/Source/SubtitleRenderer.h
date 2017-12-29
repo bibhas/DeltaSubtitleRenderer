@@ -17,5 +17,5 @@
 @interface SubtitleRenderer : NSObject
 - (id)initWithMP4AtPath:(NSURL *)aFileURL delegate:(id<SubtitleRendererDelegate>)aDelegate;
 - (void)setSubTitle:(NSString *)aSubtitleString from:(CMTime)startTime to:(CMTime)endTime;
-- (void)beginRendering;
+- (void)renderToMP4AtPath:(NSURL *)aFileURL;
 @end
