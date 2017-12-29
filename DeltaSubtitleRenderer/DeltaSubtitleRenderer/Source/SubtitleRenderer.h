@@ -9,9 +9,9 @@
 @class SubtitleRenderer;
 
 @protocol SubtitleRendererDelegate <NSObject>
-- (void)subTitleRendererDidStartRendering:(SubtitleRenderer *)aRenderer;
-- (void)subTitleRenderer:(SubtitleRenderer *)aRenderer didRenderWithProgress:(float)aProgressValue;
-- (void)subTitleRendererDidFinishRendering:(SubtitleRenderer *)aRenderer;
+- (void)subtitleRendererDidStartRendering:(SubtitleRenderer *)aRenderer;
+- (void)subtitleRenderer:(SubtitleRenderer *)aRenderer didRenderWithProgress:(float)aProgressValue;
+- (void)subtitleRendererDidFinishRendering:(SubtitleRenderer *)aRenderer;
 @end
 
 @interface SubtitleRenderer : NSObject

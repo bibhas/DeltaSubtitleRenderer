@@ -4,6 +4,7 @@
 #include <atomic>
 #include <iostream>
 #include "utils/cmtime.h"
+#include "utils/compute.h"
 #include "SubtitleRenderer.h"
 
 // SubtitleRenderer
@@ -14,6 +15,7 @@
 @implementation SubtitleRenderer {
   id<SubtitleRendererDelegate> delegate;
   std::atomic<bool> isRendering;
+  NSURL *inputFileURL;
 }
 
 - (id)initWithMP4AtPath:(NSURL *)aFileURL delegate:(id<SubtitleRendererDelegate>)aDelegate {
@@ -21,6 +23,10 @@
   if (self != nil) {
     delegate = aDelegate;
     isRendering.store(false);
+    inputFileURL = COMPUTE(NSURL *, {
+      assert(aFileURL != nil && "Input MP4 cannot be nil!");
+      return [aFileURL retain];
+    });
   }
   return self;
 }
@@ -31,8 +37,22 @@
 }
 
 - (void)renderToMP4AtPath:(NSURL *)aFileURL {
-  std::cout << "Began rendering..." << std::endl;
   assert(isRendering.load() == false && "Another render is already in progress!");
+  // Inform the delegate that we have started the render process
+  if (delegate && [delegate respondsToSelector:@selector(subtitleRendererDidStartRendering:)]) {
+    dispatch_async(dispatch_get_main_queue(), [self] {
+      [delegate subtitleRendererDidStartRendering:self];
+    });
+  }
+  // Setup the renderer innards
+
+}
+
+- (void)dealloc {
+  if (inputFileURL != nil) {
+    [inputFileURL release];
+  }
+  [super dealloc];
 }
 
 @end
