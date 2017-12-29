@@ -7,6 +7,7 @@
 #include <MBDropZone/MBDropZone.h>
 #include "utils/compute.h"
 #include "FlippedView.h"
+#include "SubtitleRenderer.h"
 #include "AppDelegate.h"
 
 #ifndef MAC_OS_X_VERSION_10_12
@@ -18,7 +19,7 @@
 #define NSWindowStyleMaskResizable NSResizableWindowMask
 #endif
 
-@interface AppDelegate (PRIVATE) <MBDropZoneDelegate>
+@interface AppDelegate (PRIVATE) <MBDropZoneDelegate, SubtitleRendererDelegate>
 - (void)setupMenu;
 @end
 
@@ -29,6 +30,7 @@
   MBDropZone *srtDropZone;
   NSProgressIndicator *progressIndicator;
   NSButton *startButton;
+  SubtitleRenderer *subtitleRenderer; 
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {       
@@ -102,15 +104,26 @@
   [srtDropZone setEnabled:NO];
   // Start rendering
   SubRip *ripper = [[SubRip alloc] initWithFile:[srtDropZone file]];
+  // Prepare renderer
+  if (subtitleRenderer != nil) {
+    [subtitleRenderer release];
+    subtitleRenderer = nil;
+  }
+  NSURL *mp4Path = [NSURL URLWithString:[mp4DropZone file]];
+  subtitleRenderer = [[SubtitleRenderer alloc] initWithMP4AtPath:mp4Path delegate:self];
+  // Parse subtitles and feed them to the renderer
   std::uint32_t i = 0;
   for (;;) {
     SubRipItem *item = [ripper subRipItemAtIndex:i];
     if (item == nil) {
       break;
     }
-    std::cout << "Item : " << i  << " -- " << [[item text] UTF8String] << std::endl;
+    [subtitleRenderer setSubTitle:[item text] from:[item startTime] to:[item endTime]];
     i++;
   }
+  std::cout << "Read " << i + 1 << " subtitles from srt file..." << std::endl;
+  // Begin render
+  [subtitleRenderer beginRendering];
 }
 
 - (void)dropZone:(MBDropZone*)dropZone receivedFile:(NSString*)file {
