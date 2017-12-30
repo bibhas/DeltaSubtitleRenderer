@@ -109,7 +109,7 @@
     [subtitleRenderer release];
     subtitleRenderer = nil;
   }
-  NSURL *mp4Path = [NSURL URLWithString:[mp4DropZone file]];
+  NSURL *mp4Path = [NSURL fileURLWithPath:[mp4DropZone file]];
   subtitleRenderer = [[SubtitleRenderer alloc] initWithMP4AtPath:mp4Path delegate:self];
   // Parse subtitles and feed them to the renderer
   std::uint32_t i = 0;
@@ -127,17 +127,17 @@
     NSString *val = @"~/Desktop/render.out.mp4";
     return [[val stringByExpandingTildeInPath] stringByStandardizingPath];
   });
-  std::cout << "Rendering to file at : " << [renderPathString UTF8String] << std::endl;
-  NSURL *renderPath = [NSURL URLWithString:renderPathString];
+  NSURL *renderPath = [NSURL fileURLWithPath:renderPathString];
+  std::cout << "Rendering to file at : " << [[renderPath absoluteString] UTF8String] << std::endl;
   [subtitleRenderer renderToMP4AtPath:renderPath];
 }
 
 - (void)dropZone:(MBDropZone*)dropZone receivedFile:(NSString*)file {
   if (dropZone == mp4DropZone) {
-    std::cout << "Got mp4 : " << [file UTF8String] << std::endl;
+    std::cout << "Got mp4 : " << [[mp4DropZone file] UTF8String] << std::endl;
   }
   else if (dropZone == srtDropZone) {
-    std::cout << "Got srt : " << [file UTF8String] << std::endl;
+    std::cout << "Got srt : " << [[srtDropZone file] UTF8String] << std::endl;
   }
   else {
     std::cerr << "Got something else..." << [file UTF8String] << std::endl;
