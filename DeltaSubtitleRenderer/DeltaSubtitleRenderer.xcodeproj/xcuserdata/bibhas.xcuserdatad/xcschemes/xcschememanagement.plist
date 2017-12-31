@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MBDropZone copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>MBDropZone.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>A3BD3E261FF8AAE500BB27E3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3BD3E3A1FF8FFE200BB27E3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3BD3E4A1FF900AB00BB27E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

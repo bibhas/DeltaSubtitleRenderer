@@ -8,6 +8,7 @@
 #include "utils/cmtime.h"
 #include "utils/compute.h"
 #include "utils/gcd_timer.h"
+#include "SDAVAssetExportSession.h"
 #include "TextRenderer.h"
 #include "SubtitleRenderer.h"
 
@@ -28,7 +29,7 @@
   struct {
     AVAsset *asset;
     AVMutableVideoComposition *mutableFilteredComposition;
-    AVAssetExportSession *exportSession;
+    SDAVAssetExportSession *exportSession;
     TextRenderer *textRenderer;
     std::unique_ptr<gcd_timer_t> progressTimer;
   } renderer;
@@ -128,17 +129,39 @@
     // If we found no subtitles for this frame, just pass the original video frame image
     [request finishWithImage:request.sourceImage context:nil];
   }] retain];
-  renderer.exportSession = COMPUTE(AVAssetExportSession *, {
-    AVAssetExportSession *resp = [[AVAssetExportSession alloc] initWithAsset:renderer.asset presetName:AVAssetExportPreset1280x720];
+  renderer.exportSession = COMPUTE(SDAVAssetExportSession *, {
+    SDAVAssetExportSession *resp = [[SDAVAssetExportSession alloc] initWithAsset:renderer.asset];
     resp.videoComposition = renderer.mutableFilteredComposition;
     resp.outputURL = aFileURL;
     resp.outputFileType = AVFileTypeMPEG4;
+    resp.videoSettings = (@{
+      AVVideoCodecKey: AVVideoCodecH264,
+      AVVideoWidthKey: @1280,
+      AVVideoHeightKey: @720,
+      AVVideoCompressionPropertiesKey: @ {
+      AVVideoAverageBitRateKey: COMPUTE(NSNumber *, {
+        AVAssetTrack *videoTrack = COMPUTE({
+          assert([[renderer.asset tracksWithMediaType:AVMediaTypeVideo] count] > 0 && "Asset contains no video!");
+          return [[renderer.asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+        });
+        //return [NSNumber numberWithFloat:[videoTrack estimatedDataRate]]; 
+        return [NSNumber numberWithFloat:2500000];
+      }),
+      AVVideoProfileLevelKey: AVVideoProfileLevelH264High40,
+      },
+    });
+    resp.audioSettings = (@{
+      AVFormatIDKey: @(kAudioFormatMPEG4AAC),
+      AVNumberOfChannelsKey: @2,
+      AVSampleRateKey: @44100,
+      AVEncoderBitRateKey: @128000,
+    });
     return resp;
   });
   [renderer.exportSession exportAsynchronouslyWithCompletionHandler:[self] {
     switch (renderer.exportSession.status) {
       case AVAssetExportSessionStatusCompleted: {
-        std::cout << "AVAssetExportSession completed..." << std::endl;
+        std::cout << "SDAVAssetExportSession completed..." << std::endl;
         renderer.progressTimer->pause();
         if (delegate && [delegate respondsToSelector:@selector(subtitleRendererDidFinishRendering:)]) {
           [delegate subtitleRendererDidFinishRendering:self];
@@ -146,7 +169,7 @@
         break;
       }
       case AVAssetExportSessionStatusFailed: {
-        std::cout << "AVAssetExportSession failed..." << std::endl;
+        std::cout << "SDAVAssetExportSession failed..." << std::endl;
         renderer.progressTimer->pause();
         if (delegate && [delegate respondsToSelector:@selector(subtitleRendererDidFinishRendering:)]) {
           [delegate subtitleRendererDidFinishRendering:self];
@@ -154,7 +177,7 @@
         break;
       }
       case AVAssetExportSessionStatusCancelled: {
-        std::cout << "AVAssetExportSession cancelled..." << std::endl;
+        std::cout << "SDAVAssetExportSession cancelled..." << std::endl;
         renderer.progressTimer->pause();
         break;
       }

@@ -19,6 +19,10 @@
 		A3BD3E311FF8AB5500BB27E3 /* TextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3BD3E211FF89DB500BB27E3 /* TextRenderer.mm */; };
 		A3BD3E331FF8AB9600BB27E3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD3E321FF8AB9600BB27E3 /* Cocoa.framework */; };
 		A3BD3E351FF8ABA100BB27E3 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD3E341FF8ABA100BB27E3 /* CoreImage.framework */; };
+		A3BD3E541FF900B900BB27E3 /* SDAVAssetExportSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD3E381FF8FFC400BB27E3 /* SDAVAssetExportSession.m */; };
+		A3BD3E551FF900BE00BB27E3 /* SDAVAssetExportSession.h in Headers */ = {isa = PBXBuildFile; fileRef = A3BD3E371FF8FFC400BB27E3 /* SDAVAssetExportSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3BD3E571FF900C500BB27E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD3E561FF900C500BB27E3 /* AVFoundation.framework */; };
+		A3BD3E5A1FF900DC00BB27E3 /* libSDAVAssetExportSession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD3E4B1FF900AB00BB27E3 /* libSDAVAssetExportSession.a */; };
 		A3C752E91FF6328700CEF8B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C752E81FF6328700CEF8B3 /* main.m */; };
 		A3C752EB1FF6328700CEF8B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C752EA1FF6328700CEF8B3 /* Assets.xcassets */; };
 		BADDE27F70452F5CB07A6B0E /* libPods-DeltaSubtitleRenderer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A3B69DDDA3578011CC72D6 /* libPods-DeltaSubtitleRenderer.a */; };
@@ -56,6 +60,11 @@
 		A3BD3E291FF8AAE500BB27E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3BD3E321FF8AB9600BB27E3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A3BD3E341FF8ABA100BB27E3 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		A3BD3E371FF8FFC400BB27E3 /* SDAVAssetExportSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDAVAssetExportSession.h; path = Thirdparty/SDAVAssetExportSession/SDAVAssetExportSession.h; sourceTree = "<group>"; };
+		A3BD3E381FF8FFC400BB27E3 /* SDAVAssetExportSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDAVAssetExportSession.m; path = Thirdparty/SDAVAssetExportSession/SDAVAssetExportSession.m; sourceTree = "<group>"; };
+		A3BD3E4B1FF900AB00BB27E3 /* libSDAVAssetExportSession.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDAVAssetExportSession.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3BD3E561FF900C500BB27E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A3BD3E581FF900D000BB27E3 /* libSubRipForCocoa.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSubRipForCocoa.a; path = "../../../../Users/bibhas/Library/Developer/Xcode/DerivedData/DeltaSubtitleRenderer-aefvhswkcqtzcxgqdeiffhubdmmo/Build/Products/Release/SubRipForCocoa/libSubRipForCocoa.a"; sourceTree = "<group>"; };
 		A3C752E11FF6328700CEF8B3 /* DeltaSubtitleRenderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltaSubtitleRenderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C752E81FF6328700CEF8B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3C752EA1FF6328700CEF8B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,10 +88,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A3BD3E481FF900AB00BB27E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3BD3E571FF900C500BB27E3 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3C752DE1FF6328700CEF8B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BD3E5A1FF900DC00BB27E3 /* libSDAVAssetExportSession.a in Frameworks */,
 				A37271C71FF637AC009E6C82 /* libMBDropZone.a in Frameworks */,
 				BADDE27F70452F5CB07A6B0E /* libPods-DeltaSubtitleRenderer.a in Frameworks */,
 			);
@@ -94,6 +112,7 @@
 		A37271B01FF6367E009E6C82 /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				A3BD3E361FF8FFAB00BB27E3 /* SDAVAssetExportSession */,
 				A37271B11FF63684009E6C82 /* MBDropZone */,
 			);
 			name = Thirdparty;
@@ -116,6 +135,15 @@
 			path = TextRendererTest;
 			sourceTree = "<group>";
 		};
+		A3BD3E361FF8FFAB00BB27E3 /* SDAVAssetExportSession */ = {
+			isa = PBXGroup;
+			children = (
+				A3BD3E371FF8FFC400BB27E3 /* SDAVAssetExportSession.h */,
+				A3BD3E381FF8FFC400BB27E3 /* SDAVAssetExportSession.m */,
+			);
+			name = SDAVAssetExportSession;
+			sourceTree = "<group>";
+		};
 		A3C752D81FF6328700CEF8B3 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +161,7 @@
 				A3C752E11FF6328700CEF8B3 /* DeltaSubtitleRenderer.app */,
 				A37271B91FF636C4009E6C82 /* libMBDropZone.a */,
 				A3BD3E271FF8AAE500BB27E3 /* TextRendererTest */,
+				A3BD3E4B1FF900AB00BB27E3 /* libSDAVAssetExportSession.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +206,8 @@
 		F9968D9CF0545CFE511C87ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3BD3E581FF900D000BB27E3 /* libSubRipForCocoa.a */,
+				A3BD3E561FF900C500BB27E3 /* AVFoundation.framework */,
 				A3BD3E341FF8ABA100BB27E3 /* CoreImage.framework */,
 				A3BD3E321FF8AB9600BB27E3 /* Cocoa.framework */,
 				41A3B69DDDA3578011CC72D6 /* libPods-DeltaSubtitleRenderer.a */,
@@ -192,6 +223,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37271C61FF63750009E6C82 /* MBDropZone.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3BD3E491FF900AB00BB27E3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3BD3E551FF900BE00BB27E3 /* SDAVAssetExportSession.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +271,23 @@
 			productReference = A3BD3E271FF8AAE500BB27E3 /* TextRendererTest */;
 			productType = "com.apple.product-type.tool";
 		};
+		A3BD3E4A1FF900AB00BB27E3 /* SDAVAssetExportSession */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3BD3E511FF900AB00BB27E3 /* Build configuration list for PBXNativeTarget "SDAVAssetExportSession" */;
+			buildPhases = (
+				A3BD3E471FF900AB00BB27E3 /* Sources */,
+				A3BD3E481FF900AB00BB27E3 /* Frameworks */,
+				A3BD3E491FF900AB00BB27E3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SDAVAssetExportSession;
+			productName = SDAVAssetExportSession;
+			productReference = A3BD3E4B1FF900AB00BB27E3 /* libSDAVAssetExportSession.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		A3C752E01FF6328700CEF8B3 /* DeltaSubtitleRenderer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3C752F21FF6328700CEF8B3 /* Build configuration list for PBXNativeTarget "DeltaSubtitleRenderer" */;
@@ -270,6 +326,11 @@
 						DevelopmentTeam = 4G52K299PY;
 						ProvisioningStyle = Automatic;
 					};
+					A3BD3E4A1FF900AB00BB27E3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4G52K299PY;
+						ProvisioningStyle = Automatic;
+					};
 					A3C752E01FF6328700CEF8B3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4G52K299PY;
@@ -293,6 +354,7 @@
 				A3C752E01FF6328700CEF8B3 /* DeltaSubtitleRenderer */,
 				A37271B81FF636C4009E6C82 /* MBDropZone */,
 				A3BD3E261FF8AAE500BB27E3 /* TextRendererTest */,
+				A3BD3E4A1FF900AB00BB27E3 /* SDAVAssetExportSession */,
 			);
 		};
 /* End PBXProject section */
@@ -375,6 +437,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A3BD3E471FF900AB00BB27E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3BD3E541FF900B900BB27E3 /* SDAVAssetExportSession.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3C752DD1FF6328700CEF8B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,6 +496,24 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				DEVELOPMENT_TEAM = 4G52K299PY;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/DeltaSubtitleRenderer/Source/\"";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A3BD3E521FF900AB00BB27E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 4G52K299PY;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A3BD3E531FF900AB00BB27E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 4G52K299PY;
+				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -573,6 +661,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A3BD3E511FF900AB00BB27E3 /* Build configuration list for PBXNativeTarget "SDAVAssetExportSession" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3BD3E521FF900AB00BB27E3 /* Debug */,
+				A3BD3E531FF900AB00BB27E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		A3C752DC1FF6328700CEF8B3 /* Build configuration list for PBXProject "DeltaSubtitleRenderer" */ = {
 			isa = XCConfigurationList;
