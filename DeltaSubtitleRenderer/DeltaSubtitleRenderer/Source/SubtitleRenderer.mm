@@ -81,7 +81,8 @@
   });
   CMTime startTime = CMTimeConvertScale(aStartTime, [videoTrack naturalTimeScale], kCMTimeRoundingMethod_RoundHalfAwayFromZero);
   CMTime endTime = CMTimeConvertScale(aEndTime, [videoTrack naturalTimeScale], kCMTimeRoundingMethod_RoundHalfAwayFromZero);
-  CIImage *textImage = [renderer.textRenderer renderImageForString:aSubtitleString];
+  NSString *sanitizedString = [[aSubtitleString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
+  CIImage *textImage = [renderer.textRenderer renderImageForString:sanitizedString];
   SubtitleContext *subtitleContext = [[SubtitleContext alloc] initWithText:aSubtitleString from:startTime to:endTime imageRepr:textImage];
   [textImage release];
   // Add to cache
