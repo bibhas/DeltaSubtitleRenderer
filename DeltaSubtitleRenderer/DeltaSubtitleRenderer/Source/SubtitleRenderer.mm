@@ -6,6 +6,7 @@
 #include <AVFoundation/AVFoundation.h>
 #include "utils/cmtime.h"
 #include "utils/compute.h"
+#include "TextRenderer.h"
 #include "SubtitleRenderer.h"
 
 // SubtitleRenderer
@@ -21,6 +22,7 @@
     AVAsset *asset;
     AVMutableVideoComposition *mutableFilteredComposition;
     AVAssetExportSession *exportSession;
+    TextRenderer *textRenderer;
   } renderer;
 }
 
@@ -34,14 +36,24 @@
       return [aFileURL retain];
     });
     renderer.asset = [[AVAsset assetWithURL:aFileURL] retain];
+    renderer.textRenderer = [[TextRenderer alloc] initWithSize:COMPUTE(NSSize, {
+      AVAssetTrack *videoTrack = COMPUTE({
+        assert([[renderer.asset tracksWithMediaType:AVMediaTypeVideo] count] > 0 && "Asset contains no video!");
+        return [[renderer.asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+      });
+      CGSize frameSize = [videoTrack naturalSize];
+      return NSMakeSize(frameSize.width, roundf((70.0f / 720.0f) * frameSize.height));
+    })];
   }
   return self;
 }
 
-- (void)setSubTitle:(NSString *)aSubtitleString from:(CMTime)startTime to:(CMTime)endTime {
+- (void)setSubTitle:(NSString *)aSubtitleString from:(CMTime)aStartTime to:(CMTime)aEndTime {
   assert(isRendering.load() == false && "A render is in progress! Cannot add subtitles now...");
-  std::cout << "Got subtitle : " << [aSubtitleString UTF8String] << " from : " << [NSStringFromCMTime(startTime) UTF8String] << " to : " << [NSStringFromCMTime(endTime) UTF8String] << std::endl; 
-  // Render a CGImage with the caption and store it for now
+  std::cout << "Got subtitle : " << [aSubtitleString UTF8String] << " from : " << [NSStringFromCMTime(aStartTime) UTF8String] << " to : " << [NSStringFromCMTime(aEndTime) UTF8String] << std::endl; 
+  // Render a CIImage with TextRenderer and put it in a cache
+  // TODO
+  //CGTime startTime = CMTimeConvertScale(aStartTime, [videoTrack naturalTimeScale], kCMTimeRoundingMethod_RoundHalfAwayFromZero);
   // TODO
 }
 
@@ -61,7 +73,7 @@
     CIImage *source = [request.sourceImage imageByClampingToExtent];
     [filter setValue:source forKey:kCIInputImageKey];
     // Vary filter parameters based on video timing
-    Float64 seconds = CMTimeGetSeconds(request.compositionTime);
+    //Float64 seconds = CMTimeGetSeconds(request.compositionTime);
     [filter setValue:[NSNumber numberWithFloat:3.0] forKey:kCIInputRadiusKey];
     // Crop the blurred output to the bounds of the original image
     CIImage *output = [filter.outputImage imageByCroppingToRect:request.sourceImage.extent];
@@ -89,6 +101,15 @@
         std::cout << "AVAssetExportSession cancelled..." << std::endl;
         break;
       }
+      case AVAssetExportSessionStatusUnknown: {
+        break;
+      }
+      case AVAssetExportSessionStatusExporting: {
+        break;
+      }
+      case AVAssetExportSessionStatusWaiting: {
+        break;
+      }
     }
   }];
 }
@@ -96,6 +117,16 @@
 - (void)dealloc {
   if (inputFileURL != nil) {
     [inputFileURL release];
+  }
+  if (renderer.exportSession != nil) {
+    [renderer.exportSession cancelExport];
+    [renderer.exportSession release];
+  }
+  if (renderer.mutableFilteredComposition != nil) {
+    [renderer.mutableFilteredComposition release];
+  }
+  if (renderer.asset != nil) {
+    [renderer.asset release];
   }
   [super dealloc];
 }

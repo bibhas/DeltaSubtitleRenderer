@@ -13,6 +13,8 @@
 		A37271C61FF63750009E6C82 /* MBDropZone.h in Headers */ = {isa = PBXBuildFile; fileRef = A37271C21FF63743009E6C82 /* MBDropZone.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A37271C71FF637AC009E6C82 /* libMBDropZone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A37271B91FF636C4009E6C82 /* libMBDropZone.a */; };
 		A37271CA1FF63A86009E6C82 /* FlippedView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A37271C91FF63A86009E6C82 /* FlippedView.mm */; };
+		A3BD3E1D1FF7D7E000BB27E3 /* sample.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD3E1C1FF7D7E000BB27E3 /* sample.png */; };
+		A3BD3E221FF89DB500BB27E3 /* TextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3BD3E211FF89DB500BB27E3 /* TextRenderer.mm */; };
 		A3C752E91FF6328700CEF8B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C752E81FF6328700CEF8B3 /* main.m */; };
 		A3C752EB1FF6328700CEF8B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C752EA1FF6328700CEF8B3 /* Assets.xcassets */; };
 		BADDE27F70452F5CB07A6B0E /* libPods-DeltaSubtitleRenderer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A3B69DDDA3578011CC72D6 /* libPods-DeltaSubtitleRenderer.a */; };
@@ -31,6 +33,9 @@
 		A37271C31FF63743009E6C82 /* MBDropZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBDropZone.m; path = Thirdparty/MBDropZone/MBDropZone.m; sourceTree = "<group>"; };
 		A37271C81FF63A86009E6C82 /* FlippedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlippedView.h; path = Source/FlippedView.h; sourceTree = "<group>"; };
 		A37271C91FF63A86009E6C82 /* FlippedView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FlippedView.mm; path = Source/FlippedView.mm; sourceTree = "<group>"; };
+		A3BD3E1C1FF7D7E000BB27E3 /* sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.png; sourceTree = "<group>"; };
+		A3BD3E201FF89DB500BB27E3 /* TextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextRenderer.h; path = Source/TextRenderer.h; sourceTree = "<group>"; };
+		A3BD3E211FF89DB500BB27E3 /* TextRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TextRenderer.mm; path = Source/TextRenderer.mm; sourceTree = "<group>"; };
 		A3C752E11FF6328700CEF8B3 /* DeltaSubtitleRenderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltaSubtitleRenderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C752E81FF6328700CEF8B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3C752EA1FF6328700CEF8B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +107,8 @@
 				A37271AE1FF63617009E6C82 /* AppDelegate.mm */,
 				A315D6AD1FF64CDA002AA3C8 /* SubtitleRenderer.h */,
 				A315D6AE1FF64CDA002AA3C8 /* SubtitleRenderer.mm */,
+				A3BD3E201FF89DB500BB27E3 /* TextRenderer.h */,
+				A3BD3E211FF89DB500BB27E3 /* TextRenderer.mm */,
 				A37271B01FF6367E009E6C82 /* Thirdparty */,
 				A3C752E71FF6328700CEF8B3 /* Supporting Files */,
 			);
@@ -111,6 +118,7 @@
 		A3C752E71FF6328700CEF8B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A3BD3E1C1FF7D7E000BB27E3 /* sample.png */,
 				A3C752EA1FF6328700CEF8B3 /* Assets.xcassets */,
 				A3C752EF1FF6328700CEF8B3 /* Info.plist */,
 				A3C752E81FF6328700CEF8B3 /* main.m */,
@@ -231,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3C752EB1FF6328700CEF8B3 /* Assets.xcassets in Resources */,
+				A3BD3E1D1FF7D7E000BB27E3 /* sample.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37271CA1FF63A86009E6C82 /* FlippedView.mm in Sources */,
+				A3BD3E221FF89DB500BB27E3 /* TextRenderer.mm in Sources */,
 				A37271AF1FF63617009E6C82 /* AppDelegate.mm in Sources */,
 				A315D6AF1FF64CDA002AA3C8 /* SubtitleRenderer.mm in Sources */,
 				A3C752E91FF6328700CEF8B3 /* main.m in Sources */,
