@@ -79,7 +79,7 @@
   }
   // Begin rendering
   isRendering.store(true);
-  renderer.mutableFilteredComposition = [AVMutableVideoComposition videoCompositionWithAsset:renderer.asset applyingCIFiltersWithHandler:[self](AVAsynchronousCIImageFilteringRequest *request) {
+  renderer.mutableFilteredComposition = [[AVMutableVideoComposition videoCompositionWithAsset:renderer.asset applyingCIFiltersWithHandler:[self](AVAsynchronousCIImageFilteringRequest *request) {
     // request.sourceImage, request.compositionTime, [request finishWithImage:... context:nil]
     CIFilter *filter = [CIFilter filterWithName:@"CISourceOverCompositing"];
     [filter setDefaults];
@@ -96,7 +96,7 @@
     // Provide the filter output to the composition
     [request finishWithImage:output context:nil];
     //[source release];
-  }];
+  }] retain];
   renderer.exportSession = COMPUTE(AVAssetExportSession *, {
     AVAssetExportSession *resp = [[AVAssetExportSession alloc] initWithAsset:renderer.asset presetName:AVAssetExportPreset1280x720];
     resp.videoComposition = renderer.mutableFilteredComposition;

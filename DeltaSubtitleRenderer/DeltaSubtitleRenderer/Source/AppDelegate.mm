@@ -95,7 +95,7 @@
 }
 
 - (void)startButtonClicked:(id)sender {
-  // Update UI
+  // Reset progress Indicator
   [[progressIndicator animator] setDoubleValue:0.0];
   [startButton setEnabled:NO];
   [startButton setTitle:@"Rendering, please wait"];
@@ -132,6 +132,7 @@
 }
 
 - (void)dropZone:(MBDropZone*)dropZone receivedFile:(NSString*)file {
+  // Update files
   if (dropZone == mp4DropZone) {
     std::cout << "Got mp4 : " << [[mp4DropZone file] UTF8String] << std::endl;
   }
@@ -141,6 +142,11 @@
   else {
     std::cerr << "Got something else..." << [file UTF8String] << std::endl;
   }
+  // If either one of the drop zones got new file, we want to rest the progress bar
+  [[progressIndicator animator] setDoubleValue:0.0];
+  [startButton setTitle:@"Start Rendering"];
+  [startButton setEnabled:YES];
+  // If we have both files, enable the start button
   if ([mp4DropZone file] != nil && [srtDropZone file] != nil) {
     [startButton setEnabled:YES];
     [progressIndicator setAlphaValue:1.0];
@@ -193,6 +199,8 @@
 - (void)subtitleRendererDidFinishRendering:(SubtitleRenderer *)aRenderer {
   [mp4DropZone setEnabled:YES];
   [srtDropZone setEnabled:YES];
+  [startButton setTitle:@"Re-render video"];
+  [startButton setEnabled:YES];
 }
 
 @end
