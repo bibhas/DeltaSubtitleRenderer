@@ -45,7 +45,7 @@
         CGSize frameSize = [videoTrack naturalSize];
         return NSMakeSize(frameSize.width, roundf((70.0f / 720.0f) * frameSize.height));
       })];
-      [resp setBackgroundColor:[NSColor colorWithWhite:0.0 alpha:0.5]];
+      [resp setBackgroundColor:[NSColor colorWithWhite:0.0 alpha:0.8]];
       [resp setForegroundColor:[NSColor colorWithWhite:1.0 alpha:1.0]];
       [resp setFont:[NSFont systemFontOfSize:40.0f]];
       return resp;
@@ -79,12 +79,12 @@
     [filter setDefaults];
     // Add background (the video image)
     CIImage *source = [request.sourceImage imageByClampingToExtent];
-    [filter setValue:source forKey:kCIInputImageKey];
+    [filter setValue:source forKey:kCIInputBackgroundImageKey];
     // Add text image on top of the video background
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, 100);
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, 0); // For now, just leave it as it is
     CIImage *textImage = [renderer.textRenderer renderImageForString:@"Hello Bibhas!"];
     CIImage *adjustedImage = [textImage imageByApplyingTransform:transform]; 
-    [filter setValue:adjustedImage forKey:kCIInputBackgroundImageKey]; 
+    [filter setValue:adjustedImage forKey:kCIInputImageKey]; 
     // Crop the video (useful later if we end up blurring the background or whatever, we'll see)
     CIImage *output = [filter.outputImage imageByCroppingToRect:request.sourceImage.extent];
     // Provide the filter output to the composition
