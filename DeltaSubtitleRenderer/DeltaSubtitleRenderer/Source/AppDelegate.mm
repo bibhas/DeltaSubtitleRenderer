@@ -40,7 +40,7 @@
     defer:NO];
   [window setShowsResizeIndicator:YES];
   [window setPreferredBackingLocation:NSWindowBackingLocationVideoMemory];                                
-  [window setTitle:@"Delta Subtitle Renderer : Demo"];
+  [window setTitle:@"Delta Subtitle Renderer : Demo (by mail@bibhas.com)"];
   [window setDelegate:self];
   [window center];
   // Setup contentview
