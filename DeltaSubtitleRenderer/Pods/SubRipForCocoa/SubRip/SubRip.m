@@ -59,7 +59,9 @@ typedef enum {
             return nil;
         } else
         {
-            return [self initWithString:string error:NULL];
+           id resp = [self initWithString:string error:NULL];
+           [string release];
+           return resp;
         }
     } else
     {

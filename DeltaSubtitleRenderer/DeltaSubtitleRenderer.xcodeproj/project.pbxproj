@@ -273,7 +273,7 @@
 					A3C752E01FF6328700CEF8B3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4G52K299PY;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -524,10 +524,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4G52K299PY;
 				INFOPLIST_FILE = DeltaSubtitleRenderer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.delta.subtitlerenderer.DeltaSubtitleRenderer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -540,10 +542,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4G52K299PY;
 				INFOPLIST_FILE = DeltaSubtitleRenderer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.delta.subtitlerenderer.DeltaSubtitleRenderer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

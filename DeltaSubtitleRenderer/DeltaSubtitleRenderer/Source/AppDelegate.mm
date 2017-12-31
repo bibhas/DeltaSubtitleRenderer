@@ -121,6 +121,7 @@
     i++;
   }
   std::cout << "Read " << i + 1 << " subtitles from srt file..." << std::endl;
+  [ripper release];
   // Begin render
   NSString *renderPathString = COMPUTE({
     NSString *val = @"~/Desktop/render.out.mp4";
