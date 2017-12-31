@@ -2,10 +2,12 @@
 // 2017 Bibhas Acharya <mail@bibhas.com>
 
 #include <atomic>
+#include <memory>
 #include <iostream>
 #include <AVFoundation/AVFoundation.h>
 #include "utils/cmtime.h"
 #include "utils/compute.h"
+#include "utils/gcd_timer.h"
 #include "TextRenderer.h"
 #include "SubtitleRenderer.h"
 
@@ -24,6 +26,7 @@
     AVAssetExportSession *exportSession;
     TextRenderer *textRenderer;
   } renderer;
+  std::unique_ptr<gcd_timer_t> progressTimer;
 }
 
 - (id)initWithMP4AtPath:(NSURL *)aFileURL delegate:(id<SubtitleRendererDelegate>)aDelegate {
@@ -47,7 +50,7 @@
       })];
       [resp setBackgroundColor:[NSColor colorWithWhite:0.0 alpha:0.8]];
       [resp setForegroundColor:[NSColor colorWithWhite:1.0 alpha:1.0]];
-      [resp setFont:[NSFont systemFontOfSize:40.0f]];
+      [resp setFont:[NSFont fontWithName:@"Menlo" size:40.0]];
       return resp;
     });
   }
@@ -65,6 +68,9 @@
 
 - (void)renderToMP4AtPath:(NSURL *)aFileURL {
   assert(isRendering.load() == false && "Another render is already in progress!");
+  // Make sure the path is valid (a valid mp4 file), and if it is, and that it already exists, delete it
+  NSError *error;
+  [[NSFileManager defaultManager] removeItemAtPath:[aFileURL path] error:&error]; 
   // Inform the delegate that we have started the render process
   if (delegate && [delegate respondsToSelector:@selector(subtitleRendererDidStartRendering:)]) {
     dispatch_async(dispatch_get_main_queue(), [self] {
@@ -82,13 +88,14 @@
     [filter setValue:source forKey:kCIInputBackgroundImageKey];
     // Add text image on top of the video background
     CGAffineTransform transform = CGAffineTransformMakeTranslation(0, 0); // For now, just leave it as it is
-    CIImage *textImage = [renderer.textRenderer renderImageForString:@"Hello Bibhas!"];
+    CIImage *textImage = [renderer.textRenderer renderImageForString:[NSString stringWithFormat:@"Hi Tanna! (%0.2f)", CMTimeGetSeconds(request.compositionTime)]];
     CIImage *adjustedImage = [textImage imageByApplyingTransform:transform]; 
     [filter setValue:adjustedImage forKey:kCIInputImageKey]; 
     // Crop the video (useful later if we end up blurring the background or whatever, we'll see)
     CIImage *output = [filter.outputImage imageByCroppingToRect:request.sourceImage.extent];
     // Provide the filter output to the composition
     [request finishWithImage:output context:nil];
+    //[source release];
   }];
   renderer.exportSession = COMPUTE(AVAssetExportSession *, {
     AVAssetExportSession *resp = [[AVAssetExportSession alloc] initWithAsset:renderer.asset presetName:AVAssetExportPreset1280x720];
@@ -101,14 +108,17 @@
     switch (renderer.exportSession.status) {
       case AVAssetExportSessionStatusCompleted: {
         std::cout << "AVAssetExportSession completed..." << std::endl;
+        progressTimer->pause();
         break;
       }
       case AVAssetExportSessionStatusFailed: {
         std::cout << "AVAssetExportSession failed..." << std::endl;
+        progressTimer->pause();
         break;
       }
       case AVAssetExportSessionStatusCancelled: {
         std::cout << "AVAssetExportSession cancelled..." << std::endl;
+        progressTimer->pause();
         break;
       }
       case AVAssetExportSessionStatusUnknown: {
@@ -122,6 +132,10 @@
       }
     }
   }];
+  progressTimer = std::make_unique<gcd_timer_t>(0.5 * NSEC_PER_SEC, dispatch_get_main_queue(), [self] {
+    std::cout << renderer.exportSession.progress << std::endl;
+  });
+  progressTimer->resume();
 }
 
 - (void)dealloc {

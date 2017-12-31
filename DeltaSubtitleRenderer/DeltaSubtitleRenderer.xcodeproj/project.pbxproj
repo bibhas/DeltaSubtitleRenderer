@@ -411,6 +411,7 @@
 		A3BD3E2C1FF8AAE500BB27E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				DEVELOPMENT_TEAM = 4G52K299PY;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/DeltaSubtitleRenderer/Source/\"";
@@ -421,6 +422,7 @@
 		A3BD3E2D1FF8AAE500BB27E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				DEVELOPMENT_TEAM = 4G52K299PY;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/DeltaSubtitleRenderer/Source/\"";
@@ -520,6 +522,7 @@
 			baseConfigurationReference = 88F59AF49C9B0958B88025EA /* Pods-DeltaSubtitleRenderer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4G52K299PY;
@@ -535,6 +538,7 @@
 			baseConfigurationReference = 72CCA2336129962917F9F87D /* Pods-DeltaSubtitleRenderer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4G52K299PY;
@@ -564,6 +568,7 @@
 				A3BD3E2D1FF8AAE500BB27E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3C752DC1FF6328700CEF8B3 /* Build configuration list for PBXProject "DeltaSubtitleRenderer" */ = {
 			isa = XCConfigurationList;
