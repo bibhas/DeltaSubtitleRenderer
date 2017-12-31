@@ -153,14 +153,6 @@
   }
 }
 
-- (void)dealloc {
-  [window release];
-  if (subtitleRenderer != nil) {
-    [subtitleRenderer release];
-  }
-  [super dealloc];
-}
-
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
   return NSTerminateNow;
 }
@@ -201,6 +193,32 @@
   [srtDropZone setEnabled:YES];
   [startButton setTitle:@"Re-render video"];
   [startButton setEnabled:YES];
+}
+
+- (void)dealloc {
+  [window release];
+  if (subtitleRenderer != nil) {
+    [subtitleRenderer release];
+  }
+  if (startButton != nil) {
+    [startButton release];
+  }
+  if (progressIndicator != nil) {
+    [progressIndicator release];
+  }
+  if (srtDropZone != nil) {
+    [srtDropZone release];
+  }
+  if (mp4DropZone != nil) {
+    [mp4DropZone release];
+  }
+  if (contentView != nil) {
+    [contentView release];
+  }
+  if (window != nil) {
+    [window release];
+  }
+  [super dealloc];
 }
 
 @end
