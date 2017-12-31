@@ -11,10 +11,15 @@
 #include "TextRenderer.h"
 #include "SubtitleRenderer.h"
 
-// SubtitleRenderer
+// SubtitleContext
 
-@interface SubtitleRenderer (PRIVATE)
+@interface SubtitleContext : NSObject
+- (id)initWithText:(NSString *)aTextString from:(CMTime)aStartTime to:(CMTime)aEndTime imageRepr:(CIImage *)aImage;
+- (BOOL)relevantAtCompositionTime:(CMTime)aTime;
+- (CIImage *)imageRepresentation;
 @end
+
+// SubtitleRenderer
 
 @implementation SubtitleRenderer {
   id<SubtitleRendererDelegate> delegate;
@@ -25,8 +30,9 @@
     AVMutableVideoComposition *mutableFilteredComposition;
     AVAssetExportSession *exportSession;
     TextRenderer *textRenderer;
+    std::unique_ptr<gcd_timer_t> progressTimer;
   } renderer;
-  std::unique_ptr<gcd_timer_t> progressTimer;
+  NSMutableArray *subtitleContexts;
 }
 
 - (id)initWithMP4AtPath:(NSURL *)aFileURL delegate:(id<SubtitleRendererDelegate>)aDelegate {
@@ -53,6 +59,14 @@
       [resp setFont:[NSFont fontWithName:@"Menlo" size:40.0]];
       return resp;
     });
+    renderer.progressTimer = std::make_unique<gcd_timer_t>(0.5 * NSEC_PER_SEC, dispatch_get_main_queue(), [self] {
+      if (renderer.exportSession) {
+        if (delegate && [delegate respondsToSelector:@selector(subtitleRenderer:didRenderWithProgress:)]) {
+          [delegate subtitleRenderer:self didRenderWithProgress:renderer.exportSession.progress];
+        }
+      }
+    });
+    subtitleContexts = [[NSMutableArray alloc] init];
   }
   return self;
 }
@@ -61,9 +75,18 @@
   assert(isRendering.load() == false && "A render is in progress! Cannot add subtitles now...");
   std::cout << "Got subtitle : " << [aSubtitleString UTF8String] << " from : " << [NSStringFromCMTime(aStartTime) UTF8String] << " to : " << [NSStringFromCMTime(aEndTime) UTF8String] << std::endl; 
   // Render a CIImage with TextRenderer and put it in a cache
-  // TODO
-  //CGTime startTime = CMTimeConvertScale(aStartTime, [videoTrack naturalTimeScale], kCMTimeRoundingMethod_RoundHalfAwayFromZero);
-  // TODO
+  AVAssetTrack *videoTrack = COMPUTE({
+    assert([[renderer.asset tracksWithMediaType:AVMediaTypeVideo] count] > 0 && "Asset contains no video!");
+    return [[renderer.asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+  });
+  CMTime startTime = CMTimeConvertScale(aStartTime, [videoTrack naturalTimeScale], kCMTimeRoundingMethod_RoundHalfAwayFromZero);
+  CMTime endTime = CMTimeConvertScale(aEndTime, [videoTrack naturalTimeScale], kCMTimeRoundingMethod_RoundHalfAwayFromZero);
+  CIImage *textImage = [renderer.textRenderer renderImageForString:aSubtitleString];
+  SubtitleContext *subtitleContext = [[SubtitleContext alloc] initWithText:aSubtitleString from:startTime to:endTime imageRepr:textImage];
+  [textImage release];
+  // Add to cache
+  [subtitleContexts addObject:subtitleContext];
+  [SubtitleContext release];
 }
 
 - (void)renderToMP4AtPath:(NSURL *)aFileURL {
@@ -81,21 +104,28 @@
   isRendering.store(true);
   renderer.mutableFilteredComposition = [[AVMutableVideoComposition videoCompositionWithAsset:renderer.asset applyingCIFiltersWithHandler:[self](AVAsynchronousCIImageFilteringRequest *request) {
     // request.sourceImage, request.compositionTime, [request finishWithImage:... context:nil]
-    CIFilter *filter = [CIFilter filterWithName:@"CISourceOverCompositing"];
-    [filter setDefaults];
-    // Add background (the video image)
-    CIImage *source = [request.sourceImage imageByClampingToExtent];
-    [filter setValue:source forKey:kCIInputBackgroundImageKey];
-    // Add text image on top of the video background
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, 0); // For now, just leave it as it is
-    CIImage *textImage = [renderer.textRenderer renderImageForString:[NSString stringWithFormat:@"Hi Tanna! (%0.2f)", CMTimeGetSeconds(request.compositionTime)]];
-    CIImage *adjustedImage = [textImage imageByApplyingTransform:transform]; 
-    [filter setValue:adjustedImage forKey:kCIInputImageKey]; 
-    // Crop the video (useful later if we end up blurring the background or whatever, we'll see)
-    CIImage *output = [filter.outputImage imageByCroppingToRect:request.sourceImage.extent];
-    // Provide the filter output to the composition
-    [request finishWithImage:output context:nil];
-    //[source release];
+    for (SubtitleContext *context in subtitleContexts) {
+      if ([context relevantAtCompositionTime:request.compositionTime]) {
+        CIFilter *filter = [CIFilter filterWithName:@"CISourceOverCompositing"];
+        [filter setDefaults];
+        // Add background (the video image)
+        CIImage *source = [request.sourceImage imageByClampingToExtent];
+        [filter setValue:source forKey:kCIInputBackgroundImageKey];
+        // Add text image on top of the video background
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(0, 0); // For now, just leave it as it is
+        CIImage *textImage = [context imageRepresentation];
+        CIImage *adjustedImage = [textImage imageByApplyingTransform:transform]; 
+        [filter setValue:adjustedImage forKey:kCIInputImageKey]; 
+        // Crop the video (useful later if we end up blurring the background or whatever, we'll see)
+        CIImage *output = [filter.outputImage imageByCroppingToRect:request.sourceImage.extent];
+        // Provide the filter output to the composition
+        [request finishWithImage:output context:nil];
+        // Since we've already applied this subtitle, stop the looking for relevant subtitles
+        return;
+      }
+    }
+    // If we found no subtitles for this frame, just pass the original video frame image
+    [request finishWithImage:request.sourceImage context:nil];
   }] retain];
   renderer.exportSession = COMPUTE(AVAssetExportSession *, {
     AVAssetExportSession *resp = [[AVAssetExportSession alloc] initWithAsset:renderer.asset presetName:AVAssetExportPreset1280x720];
@@ -108,7 +138,7 @@
     switch (renderer.exportSession.status) {
       case AVAssetExportSessionStatusCompleted: {
         std::cout << "AVAssetExportSession completed..." << std::endl;
-        progressTimer->pause();
+        renderer.progressTimer->pause();
         if (delegate && [delegate respondsToSelector:@selector(subtitleRendererDidFinishRendering:)]) {
           [delegate subtitleRendererDidFinishRendering:self];
         }
@@ -116,7 +146,7 @@
       }
       case AVAssetExportSessionStatusFailed: {
         std::cout << "AVAssetExportSession failed..." << std::endl;
-        progressTimer->pause();
+        renderer.progressTimer->pause();
         if (delegate && [delegate respondsToSelector:@selector(subtitleRendererDidFinishRendering:)]) {
           [delegate subtitleRendererDidFinishRendering:self];
         }
@@ -124,7 +154,7 @@
       }
       case AVAssetExportSessionStatusCancelled: {
         std::cout << "AVAssetExportSession cancelled..." << std::endl;
-        progressTimer->pause();
+        renderer.progressTimer->pause();
         break;
       }
       case AVAssetExportSessionStatusUnknown: {
@@ -139,12 +169,7 @@
     }
   }];
   // Start tracking progress
-  progressTimer = std::make_unique<gcd_timer_t>(0.5 * NSEC_PER_SEC, dispatch_get_main_queue(), [self] {
-    if (delegate && [delegate respondsToSelector:@selector(subtitleRenderer:didRenderWithProgress:)]) {
-      [delegate subtitleRenderer:self didRenderWithProgress:renderer.exportSession.progress];
-    }
-  });
-  progressTimer->resume();
+  renderer.progressTimer->resume();
 }
 
 - (void)dealloc {
@@ -165,3 +190,55 @@
 }
 
 @end
+
+// SubtitleContext
+
+@implementation SubtitleContext {
+  CMTime startTime;
+  CMTime endTime;
+  NSString *textRepr;
+  CIImage *imageRepr;
+}
+
+- (id)initWithText:(NSString *)aTextString from:(CMTime)aStartTime to:(CMTime)aEndTime imageRepr:(CIImage *)aImage {
+  self = [super init];
+  if (self != nil) {
+    startTime = aStartTime;
+    endTime = aEndTime;
+    textRepr = [aTextString retain];
+    imageRepr = [aImage retain];
+  }
+  return self;
+}
+
+- (BOOL)relevantAtCompositionTime:(CMTime)currentTime {
+  std::uint32_t startComparision = CMTimeCompare(startTime, currentTime);
+  std::uint32_t endComparision = CMTimeCompare(endTime, currentTime);
+  if (startComparision == 0 || endComparision == 0) {
+    // If currentTime is either startTime or endTime, then YES
+    return YES;
+  }
+  if (startComparision == -1 && endComparision == 1) {
+    // If currentTime is greater than startTime but less than endTime, then YES
+    return YES;
+  }
+  // NO for every other situation
+  return NO;
+}
+
+- (CIImage *)imageRepresentation {
+  return imageRepr;
+}
+
+- (void)dealloc {
+  if (textRepr != nil) {
+    [textRepr release];
+  }
+  if (imageRepr != nil) {
+    [imageRepr release];
+  }
+  [super dealloc];
+}
+
+@end
+
