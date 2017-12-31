@@ -7,7 +7,6 @@
 #include <MBDropZone/MBDropZone.h>
 #include "utils/compute.h"
 #include "FlippedView.h"
-#include "SubtitleRenderer.h"
 #include "AppDelegate.h"
 
 #ifndef MAC_OS_X_VERSION_10_12
@@ -97,7 +96,7 @@
 
 - (void)startButtonClicked:(id)sender {
   // Update UI
-  [progressIndicator setDoubleValue:0.5];
+  [[progressIndicator animator] setDoubleValue:0.0];
   [startButton setEnabled:NO];
   [startButton setTitle:@"Rendering, please wait"];
   [mp4DropZone setEnabled:NO];
@@ -182,16 +181,16 @@
 
 // SubtitleRendererDelegate methods
 
-- (void)subTitleRendererDidStartRendering:(SubtitleRenderer *)aRenderer {
+- (void)subtitleRendererDidStartRendering:(SubtitleRenderer *)aRenderer {
   [progressIndicator setAlphaValue:1.0];
   [[progressIndicator animator] setDoubleValue:0.0];
 }
 
-- (void)subTitleRenderer:(SubtitleRenderer *)aRenderer didRenderWithProgress:(float)aProgressValue {
+- (void)subtitleRenderer:(SubtitleRenderer *)aRenderer didRenderWithProgress:(float)aProgressValue {
   [[progressIndicator animator] setDoubleValue:aProgressValue];
 }
 
-- (void)subTitleRendererDidFinishRendering:(SubtitleRenderer *)aRenderer {
+- (void)subtitleRendererDidFinishRendering:(SubtitleRenderer *)aRenderer {
   [mp4DropZone setEnabled:YES];
   [srtDropZone setEnabled:YES];
 }

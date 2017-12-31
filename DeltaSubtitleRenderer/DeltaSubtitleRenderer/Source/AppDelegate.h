@@ -4,6 +4,7 @@
 #pragma once
 
 #import <Cocoa/Cocoa.h>
+#include "SubtitleRenderer.h"
 
 #define STARTUP_WINDOW_WIDTH    500
 #define STARTUP_WINDOW_HEIGHT   305

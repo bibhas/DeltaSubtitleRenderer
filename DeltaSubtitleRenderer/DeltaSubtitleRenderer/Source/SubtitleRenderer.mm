@@ -109,11 +109,17 @@
       case AVAssetExportSessionStatusCompleted: {
         std::cout << "AVAssetExportSession completed..." << std::endl;
         progressTimer->pause();
+        if (delegate && [delegate respondsToSelector:@selector(subtitleRendererDidFinishRendering:)]) {
+          [delegate subtitleRendererDidFinishRendering:self];
+        }
         break;
       }
       case AVAssetExportSessionStatusFailed: {
         std::cout << "AVAssetExportSession failed..." << std::endl;
         progressTimer->pause();
+        if (delegate && [delegate respondsToSelector:@selector(subtitleRendererDidFinishRendering:)]) {
+          [delegate subtitleRendererDidFinishRendering:self];
+        }
         break;
       }
       case AVAssetExportSessionStatusCancelled: {
@@ -132,8 +138,11 @@
       }
     }
   }];
+  // Start tracking progress
   progressTimer = std::make_unique<gcd_timer_t>(0.5 * NSEC_PER_SEC, dispatch_get_main_queue(), [self] {
-    std::cout << renderer.exportSession.progress << std::endl;
+    if (delegate && [delegate respondsToSelector:@selector(subtitleRenderer:didRenderWithProgress:)]) {
+      [delegate subtitleRenderer:self didRenderWithProgress:renderer.exportSession.progress];
+    }
   });
   progressTimer->resume();
 }
