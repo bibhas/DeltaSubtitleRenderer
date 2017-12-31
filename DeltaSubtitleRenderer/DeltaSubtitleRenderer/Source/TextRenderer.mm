@@ -22,7 +22,7 @@
     foregroundColor = [[NSColor colorWithWhite:1.0 alpha:1.0] retain];
     bitmapContext = COMPUTE(CGContextRef, {
       CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-      CGContextRef resp = CGBitmapContextCreate(NULL, aSize.width, aSize.height, 8, 0, colorSpace, kCGImageByteOrder32Little);
+      CGContextRef resp = CGBitmapContextCreate(NULL, aSize.width, aSize.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);
       CFRelease(colorSpace);
       assert(resp != NULL && "Could not create CGBitmapContextRef to render text into!");
       return resp;

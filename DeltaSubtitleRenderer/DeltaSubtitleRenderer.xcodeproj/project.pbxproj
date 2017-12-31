@@ -15,10 +15,26 @@
 		A37271CA1FF63A86009E6C82 /* FlippedView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A37271C91FF63A86009E6C82 /* FlippedView.mm */; };
 		A3BD3E1D1FF7D7E000BB27E3 /* sample.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD3E1C1FF7D7E000BB27E3 /* sample.png */; };
 		A3BD3E221FF89DB500BB27E3 /* TextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3BD3E211FF89DB500BB27E3 /* TextRenderer.mm */; };
+		A3BD3E2A1FF8AAE500BB27E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD3E291FF8AAE500BB27E3 /* main.m */; };
+		A3BD3E311FF8AB5500BB27E3 /* TextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3BD3E211FF89DB500BB27E3 /* TextRenderer.mm */; };
+		A3BD3E331FF8AB9600BB27E3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD3E321FF8AB9600BB27E3 /* Cocoa.framework */; };
+		A3BD3E351FF8ABA100BB27E3 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD3E341FF8ABA100BB27E3 /* CoreImage.framework */; };
 		A3C752E91FF6328700CEF8B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C752E81FF6328700CEF8B3 /* main.m */; };
 		A3C752EB1FF6328700CEF8B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C752EA1FF6328700CEF8B3 /* Assets.xcassets */; };
 		BADDE27F70452F5CB07A6B0E /* libPods-DeltaSubtitleRenderer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A3B69DDDA3578011CC72D6 /* libPods-DeltaSubtitleRenderer.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3BD3E251FF8AAE500BB27E3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		41A3B69DDDA3578011CC72D6 /* libPods-DeltaSubtitleRenderer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeltaSubtitleRenderer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +52,10 @@
 		A3BD3E1C1FF7D7E000BB27E3 /* sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.png; sourceTree = "<group>"; };
 		A3BD3E201FF89DB500BB27E3 /* TextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextRenderer.h; path = Source/TextRenderer.h; sourceTree = "<group>"; };
 		A3BD3E211FF89DB500BB27E3 /* TextRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TextRenderer.mm; path = Source/TextRenderer.mm; sourceTree = "<group>"; };
+		A3BD3E271FF8AAE500BB27E3 /* TextRendererTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TextRendererTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3BD3E291FF8AAE500BB27E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A3BD3E321FF8AB9600BB27E3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A3BD3E341FF8ABA100BB27E3 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		A3C752E11FF6328700CEF8B3 /* DeltaSubtitleRenderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltaSubtitleRenderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C752E81FF6328700CEF8B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3C752EA1FF6328700CEF8B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +67,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3BD3E241FF8AAE500BB27E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3BD3E351FF8ABA100BB27E3 /* CoreImage.framework in Frameworks */,
+				A3BD3E331FF8AB9600BB27E3 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +108,19 @@
 			name = MBDropZone;
 			sourceTree = "<group>";
 		};
+		A3BD3E281FF8AAE500BB27E3 /* TextRendererTest */ = {
+			isa = PBXGroup;
+			children = (
+				A3BD3E291FF8AAE500BB27E3 /* main.m */,
+			);
+			path = TextRendererTest;
+			sourceTree = "<group>";
+		};
 		A3C752D81FF6328700CEF8B3 = {
 			isa = PBXGroup;
 			children = (
 				A3C752E31FF6328700CEF8B3 /* DeltaSubtitleRenderer */,
+				A3BD3E281FF8AAE500BB27E3 /* TextRendererTest */,
 				A3C752E21FF6328700CEF8B3 /* Products */,
 				A90675BF63DB4EB27B6E6816 /* Pods */,
 				F9968D9CF0545CFE511C87ED /* Frameworks */,
@@ -94,6 +132,7 @@
 			children = (
 				A3C752E11FF6328700CEF8B3 /* DeltaSubtitleRenderer.app */,
 				A37271B91FF636C4009E6C82 /* libMBDropZone.a */,
+				A3BD3E271FF8AAE500BB27E3 /* TextRendererTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +177,8 @@
 		F9968D9CF0545CFE511C87ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3BD3E341FF8ABA100BB27E3 /* CoreImage.framework */,
+				A3BD3E321FF8AB9600BB27E3 /* Cocoa.framework */,
 				41A3B69DDDA3578011CC72D6 /* libPods-DeltaSubtitleRenderer.a */,
 			);
 			name = Frameworks;
@@ -174,6 +215,23 @@
 			productReference = A37271B91FF636C4009E6C82 /* libMBDropZone.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		A3BD3E261FF8AAE500BB27E3 /* TextRendererTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3BD3E2B1FF8AAE500BB27E3 /* Build configuration list for PBXNativeTarget "TextRendererTest" */;
+			buildPhases = (
+				A3BD3E231FF8AAE500BB27E3 /* Sources */,
+				A3BD3E241FF8AAE500BB27E3 /* Frameworks */,
+				A3BD3E251FF8AAE500BB27E3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TextRendererTest;
+			productName = TextRendererTest;
+			productReference = A3BD3E271FF8AAE500BB27E3 /* TextRendererTest */;
+			productType = "com.apple.product-type.tool";
+		};
 		A3C752E01FF6328700CEF8B3 /* DeltaSubtitleRenderer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3C752F21FF6328700CEF8B3 /* Build configuration list for PBXNativeTarget "DeltaSubtitleRenderer" */;
@@ -207,6 +265,11 @@
 						DevelopmentTeam = 4G52K299PY;
 						ProvisioningStyle = Automatic;
 					};
+					A3BD3E261FF8AAE500BB27E3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4G52K299PY;
+						ProvisioningStyle = Automatic;
+					};
 					A3C752E01FF6328700CEF8B3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4G52K299PY;
@@ -229,6 +292,7 @@
 			targets = (
 				A3C752E01FF6328700CEF8B3 /* DeltaSubtitleRenderer */,
 				A37271B81FF636C4009E6C82 /* MBDropZone */,
+				A3BD3E261FF8AAE500BB27E3 /* TextRendererTest */,
 			);
 		};
 /* End PBXProject section */
@@ -302,6 +366,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A3BD3E231FF8AAE500BB27E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3BD3E311FF8AB5500BB27E3 /* TextRenderer.mm in Sources */,
+				A3BD3E2A1FF8AAE500BB27E3 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3C752DD1FF6328700CEF8B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,6 +404,26 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 4G52K299PY;
 				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A3BD3E2C1FF8AAE500BB27E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				DEVELOPMENT_TEAM = 4G52K299PY;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/DeltaSubtitleRenderer/Source/\"";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A3BD3E2D1FF8AAE500BB27E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				DEVELOPMENT_TEAM = 4G52K299PY;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/DeltaSubtitleRenderer/Source/\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -463,6 +556,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A3BD3E2B1FF8AAE500BB27E3 /* Build configuration list for PBXNativeTarget "TextRendererTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3BD3E2C1FF8AAE500BB27E3 /* Debug */,
+				A3BD3E2D1FF8AAE500BB27E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		A3C752DC1FF6328700CEF8B3 /* Build configuration list for PBXProject "DeltaSubtitleRenderer" */ = {
 			isa = XCConfigurationList;

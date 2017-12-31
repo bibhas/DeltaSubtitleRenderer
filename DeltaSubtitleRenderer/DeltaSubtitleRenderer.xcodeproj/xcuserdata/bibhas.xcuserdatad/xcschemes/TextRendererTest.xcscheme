@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A3C752E01FF6328700CEF8B3"
-               BuildableName = "DeltaSubtitleRenderer.app"
-               BlueprintName = "DeltaSubtitleRenderer"
+               BlueprintIdentifier = "A3BD3E261FF8AAE500BB27E3"
+               BuildableName = "TextRendererTest"
+               BlueprintName = "TextRendererTest"
                ReferencedContainer = "container:DeltaSubtitleRenderer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A3C752E01FF6328700CEF8B3"
-            BuildableName = "DeltaSubtitleRenderer.app"
-            BlueprintName = "DeltaSubtitleRenderer"
+            BlueprintIdentifier = "A3BD3E261FF8AAE500BB27E3"
+            BuildableName = "TextRendererTest"
+            BlueprintName = "TextRendererTest"
             ReferencedContainer = "container:DeltaSubtitleRenderer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,19 +55,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A3C752E01FF6328700CEF8B3"
-            BuildableName = "DeltaSubtitleRenderer.app"
-            BlueprintName = "DeltaSubtitleRenderer"
+            BlueprintIdentifier = "A3BD3E261FF8AAE500BB27E3"
+            BuildableName = "TextRendererTest"
+            BlueprintName = "TextRendererTest"
             ReferencedContainer = "container:DeltaSubtitleRenderer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "CGBITMAP_CONTEXT_LOG_ERRORS"
-            value = ""
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -81,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A3C752E01FF6328700CEF8B3"
-            BuildableName = "DeltaSubtitleRenderer.app"
-            BlueprintName = "DeltaSubtitleRenderer"
+            BlueprintIdentifier = "A3BD3E261FF8AAE500BB27E3"
+            BuildableName = "TextRendererTest"
+            BlueprintName = "TextRendererTest"
             ReferencedContainer = "container:DeltaSubtitleRenderer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

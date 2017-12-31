@@ -14,10 +14,20 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>TextRendererTest.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>A37271B81FF636C4009E6C82</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3BD3E261FF8AAE500BB27E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -36,14 +36,20 @@
       return [aFileURL retain];
     });
     renderer.asset = [[AVAsset assetWithURL:aFileURL] retain];
-    renderer.textRenderer = [[TextRenderer alloc] initWithSize:COMPUTE(NSSize, {
-      AVAssetTrack *videoTrack = COMPUTE({
-        assert([[renderer.asset tracksWithMediaType:AVMediaTypeVideo] count] > 0 && "Asset contains no video!");
-        return [[renderer.asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
-      });
-      CGSize frameSize = [videoTrack naturalSize];
-      return NSMakeSize(frameSize.width, roundf((70.0f / 720.0f) * frameSize.height));
-    })];
+    renderer.textRenderer = COMPUTE(TextRenderer *, {
+      TextRenderer *resp = [[TextRenderer alloc] initWithSize:COMPUTE(NSSize, {
+        AVAssetTrack *videoTrack = COMPUTE({
+          assert([[renderer.asset tracksWithMediaType:AVMediaTypeVideo] count] > 0 && "Asset contains no video!");
+          return [[renderer.asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+        });
+        CGSize frameSize = [videoTrack naturalSize];
+        return NSMakeSize(frameSize.width, roundf((70.0f / 720.0f) * frameSize.height));
+      })];
+      [resp setBackgroundColor:[NSColor colorWithWhite:0.0 alpha:0.5]];
+      [resp setForegroundColor:[NSColor colorWithWhite:1.0 alpha:1.0]];
+      [resp setFont:[NSFont systemFontOfSize:40.0f]];
+      return resp;
+    });
   }
   return self;
 }
@@ -68,14 +74,18 @@
   // Begin rendering
   isRendering.store(true);
   renderer.mutableFilteredComposition = [AVMutableVideoComposition videoCompositionWithAsset:renderer.asset applyingCIFiltersWithHandler:[self](AVAsynchronousCIImageFilteringRequest *request) {
-    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
-    // Clamp to avoid blurring transparent pixels at the image edges
+    // request.sourceImage, request.compositionTime, [request finishWithImage:... context:nil]
+    CIFilter *filter = [CIFilter filterWithName:@"CISourceOverCompositing"];
+    [filter setDefaults];
+    // Add background (the video image)
     CIImage *source = [request.sourceImage imageByClampingToExtent];
     [filter setValue:source forKey:kCIInputImageKey];
-    // Vary filter parameters based on video timing
-    //Float64 seconds = CMTimeGetSeconds(request.compositionTime);
-    [filter setValue:[NSNumber numberWithFloat:3.0] forKey:kCIInputRadiusKey];
-    // Crop the blurred output to the bounds of the original image
+    // Add text image on top of the video background
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, 100);
+    CIImage *textImage = [renderer.textRenderer renderImageForString:@"Hello Bibhas!"];
+    CIImage *adjustedImage = [textImage imageByApplyingTransform:transform]; 
+    [filter setValue:adjustedImage forKey:kCIInputBackgroundImageKey]; 
+    // Crop the video (useful later if we end up blurring the background or whatever, we'll see)
     CIImage *output = [filter.outputImage imageByCroppingToRect:request.sourceImage.extent];
     // Provide the filter output to the composition
     [request finishWithImage:output context:nil];
