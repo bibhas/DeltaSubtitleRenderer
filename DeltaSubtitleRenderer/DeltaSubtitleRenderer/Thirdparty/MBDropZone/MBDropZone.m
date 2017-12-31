@@ -47,12 +47,24 @@
         [roundedRectanglePath stroke];
     }
     else {
+      if (_isEnabled) {
         NSBezierPath* roundedRectanglePath = [NSBezierPath bezierPathWithRoundedRect:dirtyRect xRadius:8 yRadius:8];
-        [[NSColor colorWithWhite:1.0 alpha:0.8] setFill];
+        _isHoveringFile ? [color3 setStroke] : [color setStroke];
+        [roundedRectanglePath setLineWidth:1];
+        CGFloat roundedRectanglePattern[] = {6, 6, 6, 6};
+        [roundedRectanglePath setLineDash:roundedRectanglePattern count:4 phase:0];
+        [[NSColor colorWithWhite:1.0 alpha:1.0] setFill];
+        [roundedRectanglePath fill];
+        [roundedRectanglePath stroke];
+      }
+      else {
+        NSBezierPath* roundedRectanglePath = [NSBezierPath bezierPathWithRoundedRect:dirtyRect xRadius:8 yRadius:8];
+        [[NSColor colorWithWhite:1.0 alpha:1.0] setFill];
         [roundedRectanglePath fill];
         [roundedRectanglePath setLineWidth:0.25];
         [[NSColor colorWithWhite:0.2 alpha:0.6] setStroke];
         [roundedRectanglePath stroke];
+      }
     }
 
     if (_text)
@@ -140,6 +152,7 @@
 
 - (void)setEnabled:(BOOL)isEnabled {
   _isEnabled = isEnabled;
+  [self setNeedsDisplay:YES];
 }
 
 - (void)setFile:(NSString *)file {
